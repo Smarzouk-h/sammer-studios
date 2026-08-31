@@ -50,6 +50,17 @@ function tileHTML(p, { cls = "", sizes = "(max-width: 640px) 50vw, 33vw", eager 
     </button>`;
 }
 
+/** Inline style for a standalone photograph, e.g. the About portraits.
+    Uses the picture's own orientation rather than forcing a shape onto it,
+    and honours any focal point set in the config. */
+function framedPhoto(p, fallbackRatio = "4/5") {
+  const ratio = p.orient === "landscape" ? "3/2"
+              : p.orient === "square"    ? "1/1"
+              : fallbackRatio;
+  const focus = (SITE.focus && SITE.focus[p.slug]) || "50% 50%";
+  return `width:100%;aspect-ratio:${ratio};object-fit:cover;object-position:${focus};border-radius:3px`;
+}
+
 /** Render a set of photos into a container and wire them to the lightbox. */
 function renderGrid(host, list, opts = {}) {
   if (!host) return;

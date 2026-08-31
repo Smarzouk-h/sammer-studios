@@ -326,13 +326,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("print-teaser").innerHTML = teaser.map(s => `
     <a href="prints.html#order-${s}" style="display:block;overflow:hidden">
       <img src="photos/thumb/${s}.jpg" alt="${esc(bySlug[s].title)}"
-           style="width:100%;aspect-ratio:1;object-fit:cover" loading="lazy">
+           style="width:100%;aspect-ratio:1;object-fit:cover;object-position:${(SITE.focus && SITE.focus[s]) || "50% 50%"}"
+           loading="lazy">
     </a>`).join("");
 
   const portrait = bySlug[SITE.portraitsOfMe.homeTeaser] || bySlug["records"];
   document.getElementById("about-teaser-img").innerHTML = `
     <img src="photos/full/${portrait.slug}.jpg" alt="Sammer Marzouk"
-         style="width:100%;aspect-ratio:4/5;object-fit:cover" loading="lazy">`;
+         style="${framedPhoto(portrait)}" loading="lazy">`;
 
   document.querySelectorAll("[data-mail]").forEach(a => {
     a.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Photography enquiry")}`;

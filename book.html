@@ -44,6 +44,17 @@
     </aside>
   </section>
 
+  <!-- testimonials (hidden until real quotes are pasted into the config) -->
+  <section class="section section--line wrap" id="quotes-section" hidden>
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">In their words</p>
+        <h2>What people say<br>afterwards</h2>
+      </div>
+    </div>
+    <div class="quotes reveal" id="quotes"></div>
+  </section>
+
   <!-- calendar (only rendered when a scheduling link is configured) -->
   <section class="section section--line wrap" id="calendar-section" hidden>
     <div class="section-head">
@@ -205,6 +216,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const match = SITE.packages.find(p => p.id === h);
   if (match) typeSel.value = match.name;
 
+  /* --- testimonials: only entries with an actual quote are shown --- */
+  const quotes = (SITE.testimonials || []).filter(t => t.quote && t.quote.trim());
+  if (quotes.length) {
+    document.getElementById("quotes-section").hidden = false;
+    document.getElementById("quotes").innerHTML = quotes.map(t => `
+      <figure class="quote">
+        <blockquote>${esc(t.quote)}</blockquote>
+        <cite>${esc(t.who || "Client")}<span>${esc(t.detail || "")}</span></cite>
+      </figure>`).join("");
+  }
+
   /* --- scheduling embed, only if one is configured --- */
   if (SITE.schedulingEmbedUrl) {
     const sec = document.getElementById("calendar-section");
@@ -269,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bp && me) {
     bp.innerHTML = `
       <img src="photos/full/${me.slug}.jpg" alt="Sammer Marzouk"
-           style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px" loading="lazy">
+           style="${framedPhoto(me)}" loading="lazy">
       <p style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dimmer);margin-top:.7rem">
         Sammer Marzouk
       </p>`;

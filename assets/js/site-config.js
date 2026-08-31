@@ -233,6 +233,31 @@ const SITE = {
     contact:     "records",
   },
 
+  // Where the subject sits in a frame, as "x y" percentages. Only needed when
+  // a crop cuts something important. 50% 50% is the default and is left out.
+  focus: {
+    "records":          "50% 32%",   // his face sits high in the frame
+    "me-at-the-bridge": "50% 35%",
+    "the-dome":         "60% 50%",   // centres the dome's hub in a square crop
+  },
+
+  /* --------------------------------------------------------------------
+     4b. TESTIMONIALS
+     ------------------------------------------------------------------
+     Paste each person's ACTUAL words. An entry with an empty quote is
+     skipped, and if every quote is empty the whole section stays hidden,
+     so nothing invented ever goes live.
+
+     Ask them something like: "Would you mind sending me a sentence or two
+     about what the session was like? I would like to put it on my site
+     with just your first name and what we shot."
+     ------------------------------------------------------------------ */
+  testimonials: [
+    { quote: "", who: "", detail: "ERAS headshots" },
+    { quote: "", who: "", detail: "Engagement session" },
+    { quote: "", who: "", detail: "Bridal portraits" },
+  ],
+
   /* --------------------------------------------------------------------
      5. ABOUT PAGE COPY
      ------------------------------------------------------------------ */

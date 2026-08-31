@@ -117,7 +117,7 @@
 
   <!-- strip of work -->
   <section class="section section--line wrap">
-    <div class="masonry" id="about-strip" style="columns:5 200px"></div>
+    <div class="photo-grid" id="about-strip"></div>
   </section>
 
 </main>
@@ -189,12 +189,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (cpHost && contactPortrait) {
     cpHost.innerHTML = `
       <img src="photos/full/${contactPortrait.slug}.jpg" alt="Sammer Marzouk"
-           style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px" loading="lazy">`;
+           style="${framedPhoto(contactPortrait)}" loading="lazy">`;
   }
 
   /* a strip of recent work at the bottom */
+  // Eight, so the grid always fills complete rows at four or two columns.
   const strip = PHOTOS.filter(p => p.featured > 0)
-    .sort((a, b) => b.featured - a.featured).slice(0, 10);
+    .sort((a, b) => b.featured - a.featured).slice(0, 8);
   renderGrid(document.getElementById("about-strip"), strip,
     { sizes: "(max-width: 640px) 50vw, 20vw" });
 });

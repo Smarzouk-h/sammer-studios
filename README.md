@@ -112,6 +112,35 @@ you send anything to print.
 
 ---
 
+## Testimonials
+
+There is a section on the booking page for these, sitting under the packages
+where it does the most work. It is **hidden right now**, and it stays hidden
+until you paste in real quotes. An entry with an empty quote is skipped, and if
+all three are empty the whole section never renders.
+
+Three slots are waiting in `assets/js/site-config.js`, one each for the ERAS
+student, the engagement family, and the bridal couple:
+
+```js
+testimonials: [
+  { quote: "", who: "", detail: "ERAS headshots" },
+  ...
+]
+```
+
+I did not write the quotes. They have to be the clients' own words, in their
+own phrasing, or they are not testimonials. Something to send the three people
+who already said yes:
+
+> Would you mind sending me a sentence or two about what the session was like?
+> I am putting a few on my website. I would use just your first name and what
+> we shot, nothing else, and I will show you where it goes before it is live.
+
+Paste what comes back into `quote`, put their first name in `who`, and the
+section appears. Keep `detail` as the shoot type. If someone would rather not
+be named, "A" plus an initial is fine as long as the words are genuinely theirs.
+
 ## Pulling in Instagram
 
 There is a "Latest posts" strip on the home page. It stays hidden until

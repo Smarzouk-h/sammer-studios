@@ -37,7 +37,7 @@
 
   <section class="section section--tight wrap">
     <div id="filters" role="group" aria-label="Filter by collection"></div>
-    <p class="eyebrow" id="collection-blurb" style="max-width:60ch;margin-bottom:2rem"></p>
+    <p class="collection-intro" id="collection-blurb" hidden></p>
     <div class="masonry" id="grid"></div>
     <p id="empty" style="display:none;color:var(--paper-dim);text-align:center;padding:4rem 0">
       Nothing in this collection yet.
@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   filters.innerHTML =
     `<div class="filter-row">
+       <span class="filter-label" aria-hidden="true"></span>
        <button class="filter" data-id="all" aria-pressed="true">Everything</button>
      </div>` +
     groups.map(g => `
@@ -102,7 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     empty.style.display = current.length ? "none" : "block";
     const tab = TABS.find(t => t.id === id);
-    blurbEl.textContent = tab && tab.blurb ? tab.blurb : "";
+    const intro = tab && tab.blurb ? tab.blurb : "";
+    blurbEl.textContent = intro;
+    blurbEl.hidden = !intro;
 
     document.querySelectorAll(".filter").forEach(b =>
       b.setAttribute("aria-pressed", String(b.dataset.id === id)));
