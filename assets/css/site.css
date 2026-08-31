@@ -817,3 +817,18 @@ select {
 
 /* --------------------------------------------------------- vintage tag */
 .vintage-tag { color: var(--gold-soft); }
+
+/* ------------------------------------------------------- tagged clips */
+.clip-wrap {
+  position: relative; margin: 0; flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+.filmstrip .clip-wrap .clip { scroll-snap-align: none; }
+.clip-tag {
+  position: absolute; left: .55rem; bottom: .55rem;
+  font-size: .6rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--paper); background: rgba(10,10,11,.72);
+  backdrop-filter: blur(4px);
+  padding: .3rem .55rem; border-radius: 2px;
+  pointer-events: none;
+}

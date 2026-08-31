@@ -96,7 +96,7 @@
       <div>
         <p class="eyebrow">In motion</p>
         <h2>Some of it moves</h2>
-        <p>Short clips from the same walks and the same desk. Sound off, no autoplay ads, nothing asked of you.</p>
+        <p>Short clips from the same walks and the same desk. The first two are the Handycam, soft and standard definition on purpose. Sound off, nothing asked of you.</p>
       </div>
     </div>
     <div class="filmstrip reveal" id="filmstrip"></div>
@@ -264,6 +264,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* --- silent ambient loops --- */
   const CLIPS = [
+    // The two Handycam clips lead: they are the sample for the vintage
+    // package, and the tag stops the soft, grainy look reading as a mistake.
+    { file: "camcorder-moon",      alt: "The moon rising through cloud over Lake Michigan, filmed on a standard-definition camcorder", tag: "Sony Handycam" },
+    { file: "camcorder-lakefront", alt: "Boats moored off the Chicago lakefront at dusk, filmed on a standard-definition camcorder", tag: "Sony Handycam" },
     { file: "river-bluehour",   alt: "The Chicago River at blue hour, seen from above" },
     { file: "chicago-festival", alt: "A summer street festival crowd with the Chicago skyline behind" },
     { file: "calligraphy",      alt: "A hand writing Arabic calligraphy in ink on paper" },
@@ -275,10 +279,13 @@ document.addEventListener("DOMContentLoaded", () => {
     { file: "water-window",     alt: "Water moving behind glass" },
   ];
   document.getElementById("filmstrip").innerHTML = CLIPS.map(c => `
-    <video class="clip" muted loop playsinline preload="none"
-           poster="video/${c.file}.jpg" aria-label="${esc(c.alt)}">
-      <source src="video/${c.file}.mp4" type="video/mp4">
-    </video>`).join("");
+    <figure class="clip-wrap">
+      <video class="clip" muted loop playsinline preload="none"
+             poster="video/${c.file}.jpg" aria-label="${esc(c.alt)}">
+        <source src="video/${c.file}.mp4" type="video/mp4">
+      </video>
+      ${c.tag ? `<figcaption class="clip-tag">${esc(c.tag)}</figcaption>` : ""}
+    </figure>`).join("");
 
   // Only play what is on screen, and never on a metered or reduced-motion setup.
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -143,9 +143,17 @@ on its own. Nine photographs qualify today, including all three Dar Baklava
 frames and Ameyoko After Dark. That is the strongest argument for the package:
 your paid product commission was shot on a nineteen-year-old entry-level body.
 
-**What is missing is Handycam footage.** The package describes video I cannot
-show, because you have not sent any. Even thirty seconds of something ordinary
-would let me put a clip in the motion strip and make the offer real.
+The Handycam footage is now on the site. Two twelve-second clips lead the
+motion strip on the home page: the moon coming up through cloud over the lake,
+and the boats moored off the lakefront at dusk. Both are kept at their native
+854 by 480 and lightly compressed, because the softness is the product and
+sharpening it would defeat the point. They carry a small "Sony Handycam" label
+so the look reads as deliberate rather than as a broken file.
+
+The longer takes you sent run 35 and 48 seconds. I cut the strongest twelve
+seconds out of each. The second clip also has you on camera near the end, which
+I left out of the strip: say the word if you want that on the About page, where
+it would sit better.
 
 ## Pulling in Instagram
 
@@ -248,7 +256,9 @@ Sections are built and waiting; they need files.
    current ones are not really.
 4. **More ERAS headshots.** Two is enough to prove it; five or six would let
    the collection stand as a portfolio in its own right.
-5. **Handycam footage.** Anything at all, so the vintage package has a sample.
+5. **A camcorder clip with people in it.** The two on the site are landscape.
+   A few seconds of the Handycam at an actual event would sell the vintage
+   package far harder than the lake does.
 
 Covered now: ERAS headshots, the American Muslim Physician Association banquet,
 and Northwestern Medicine.

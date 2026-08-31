@@ -148,7 +148,7 @@ const SITE = {
       name: "Vintage & Camcorder",
       price: "From $150",
       duration: "Add on, or book alone",
-      summary: "Shot on a 2006 Canon Rebel and a standard-definition Sony Handycam. Soft, grainy, and dated on purpose. Add it to any session for a second set of images that look nothing like the first.",
+      summary: "Shot on a 2006 Canon Rebel and a standard-definition Sony Handycam. Soft, grainy, and dated on purpose. There are two Handycam clips on the home page if you want to see what it looks like before you decide.",
       includes: [
         "2006 Canon Rebel XTi stills",
         "Sony DCR-DVD650 Handycam video, standard definition",
