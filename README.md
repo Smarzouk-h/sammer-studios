@@ -25,37 +25,53 @@ tools/                      Scripts to regenerate everything
 
 ---
 
-## Two things to set up before you tell anyone about it
+## The last two steps, both yours
 
-Both live at the top of `assets/js/site-config.js`. Until you do them the site
-still works. It just falls back to opening the visitor's email app instead of
-sending you a message directly, which loses a lot of people.
+I cannot create accounts or sign in as you, so these two need your hands. Both
+are short.
 
-### 1. A form backend, five minutes
+### 1. Activate the contact form, one click
 
-Booking requests and print orders need somewhere to go.
+Booking requests and print orders already POST to FormSubmit, which needs no
+account. **There is a confirmation email waiting in marzouksammer@gmail.com**
+with the subject "Confirm your email" or similar, from FormSubmit. Click the
+"Activate Form" link in it and you are done. Every submission from then on
+arrives as email.
 
-1. Sign up at [formspree.io](https://formspree.io) (free tier is fine).
-2. Create a form, copy its endpoint URL.
-3. Paste it in:
+Check spam if you cannot see it.
 
-```js
-formEndpoint: "https://formspree.io/f/xxxxxxxx",
-```
+Until you click it, nothing breaks and nothing is lost: the site notices the
+endpoint is not live and opens the visitor's email app with the whole message
+pre-filled instead. That fallback also covers FormSubmit being down later.
 
-Send yourself a test order afterwards.
+After activating, FormSubmit shows you a random token. Swapping the address in
+`formEndpoint` for that token keeps your email address out of a file every
+visitor downloads. Worth doing eventually, not urgent, since your address is on
+the contact page anyway.
 
-### 2. A calendar, optional but worth it
+If you would rather use Formspree, sign up there and paste its endpoint into
+`formEndpoint` instead. The site does not care which.
 
-Set `schedulingEmbedUrl` and a "Pick a time" calendar appears on the booking
-page. Leave it empty and visitors just use the request form, which is a
-perfectly good way to start.
+### 2. The booking calendar, about five minutes
 
-Your Northwestern Google account already does this for free:
-**Calendar → Create → Appointment schedule → Share → Embed**. Calendly and
-Cal.com links work too.
+A live "Pick a time" calendar appears on the Book page as soon as
+`schedulingEmbedUrl` has a link in it. On marzouksammer@gmail.com, free:
 
----
+1. Go to calendar.google.com signed in as marzouksammer@gmail.com
+2. **Create > Appointment schedule**
+3. Name it, set how long a session runs and which hours you will shoot
+4. Save, reopen it, and press **Share** or **Open booking page**
+5. Copy that booking page link
+
+It looks like
+`https://calendar.google.com/calendar/appointments/schedules/AcZssZ...`
+
+Paste it into `schedulingEmbedUrl` in `assets/js/site-config.js`, run
+`./tools/publish.sh`, and the calendar is live. Send me the link and I will do
+it for you.
+
+Calendly and Cal.com links work in the same slot. It has to be a page that
+allows embedding: a booking page does, a plain calendar.google.com URL does not.
 
 ## How print orders actually work
 
