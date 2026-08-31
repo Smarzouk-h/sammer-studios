@@ -143,17 +143,26 @@ on its own. Nine photographs qualify today, including all three Dar Baklava
 frames and Ameyoko After Dark. That is the strongest argument for the package:
 your paid product commission was shot on a nineteen-year-old entry-level body.
 
-The Handycam footage is now on the site. Two twelve-second clips lead the
-motion strip on the home page: the moon coming up through cloud over the lake,
-and the boats moored off the lakefront at dusk. Both are kept at their native
-854 by 480 and lightly compressed, because the softness is the product and
-sharpening it would defeat the point. They carry a small "Sony Handycam" label
-so the look reads as deliberate rather than as a broken file.
+Three Handycam clips lead the motion strip on the home page: friends round a
+restaurant table under string lights, the moon coming up through cloud over the
+lake, and boats moored off the lakefront at dusk. All three are kept at 854 by
+480 and lightly compressed, because the softness is the product and sharpening
+it would defeat the point. They carry a small "Sony Handycam" label so the look
+reads as deliberate rather than as a broken file.
 
-The longer takes you sent run 35 and 48 seconds. I cut the strongest twelve
-seconds out of each. The second clip also has you on camera near the end, which
-I left out of the strip: say the word if you want that on the About page, where
-it would sit better.
+The table clip arrived anamorphic, 720 by 480 stored with a 32:27 pixel ratio,
+which plays squashed unless it is corrected. It is unsquashed to square pixels
+so the proportions match the other two.
+
+Your takes ran 25, 35 and 48 seconds; I cut the strongest twelve seconds out of
+each. One of them has you on camera near the end, which I left out: say the
+word if you want it on the About page, where it would sit better than in a row
+of landscapes.
+
+**Worth checking before you publish.** The table clip shows several
+identifiable faces. They are presumably friends rather than clients who signed
+anything, and this is a commercial site. Make sure they are happy to be on it,
+the same as for the headshots and the banquet photograph.
 
 ## Pulling in Instagram
 
@@ -256,9 +265,9 @@ Sections are built and waiting; they need files.
    current ones are not really.
 4. **More ERAS headshots.** Two is enough to prove it; five or six would let
    the collection stand as a portfolio in its own right.
-5. **A camcorder clip with people in it.** The two on the site are landscape.
-   A few seconds of the Handycam at an actual event would sell the vintage
-   package far harder than the lake does.
+5. **Handycam footage at a paid job.** The table clip is friends rather than
+   a client. One reception or party you were actually hired for would let the
+   vintage package show real work instead of a night out.
 
 Covered now: ERAS headshots, the American Muslim Physician Association banquet,
 and Northwestern Medicine.
@@ -335,8 +344,8 @@ That is up from 2000px, because on a retina laptop the old cap was being
 upscaled in the lightbox and looked soft. 2400px is sharp on screen and still
 awkward to print large from, which matters given you sell prints.
 
-The nine video clips are muted, looping, and only load when they scroll into
-view. They are skipped entirely for anyone on a metered connection or with
+The thirteen video clips are muted, looping, and only load when they scroll
+into view. They are skipped entirely for anyone on a metered connection or with
 reduced-motion turned on.
 
 There are still no testimonials and no client logos. The Experience strip on
