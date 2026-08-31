@@ -2,3 +2,4 @@
 tools/__pycache__/
 *.pyc
 _photo-staging/
+tools/costs.local.md

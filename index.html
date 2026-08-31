@@ -209,17 +209,23 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`).join("");
 
   /* --- featured mosaic: chosen by hand so the shapes sit well together --- */
-  // Commissioned work leads: a headshot, an event, a product frame, the
+  // Nothing appears twice on this page. Every section adds what it uses to
+  // `used`, and later sections pick around it, so reordering the mosaic below
+  // cannot silently duplicate a photograph somewhere further down.
+  const used = new Set(["lakefront-sunstar"]);   // the hero
+
+  // Commissioned work leads: an event, one headshot, a product frame, the
   // calligraphy. The personal pictures fill out the shapes around them.
   const MOSAIC = [
     ["ampa-banquet",       "m-a"],
     ["headshot-window",    "m-b"],
     ["baklava-and-coffee", "m-c"],
     ["the-letter",         "m-d"],
-    ["headshot-clean",     "m-e"],
+    ["storm-breaking",     "m-e"],
     ["sabrett",            "m-f"],
-    ["a-thousand-boats",   "m-g"],
+    ["ameyoko",            "m-g"],
   ].filter(([slug]) => bySlug[slug]);
+  MOSAIC.forEach(([slug]) => used.add(slug));
 
   const mosaicList = MOSAIC.map(([slug]) => bySlug[slug]);
   const host = document.getElementById("featured-mosaic");
@@ -243,9 +249,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <h3 class="coll-group-title">${esc(g.name)}</h3>
       <div class="coll-grid">
         ${g.items.map(c => {
-          const shots = PHOTOS.filter(p => p.collection === c.id);
-          const cover = shots.slice().sort((a, b) => b.featured - a.featured)[0];
+          const shots = PHOTOS.filter(p => p.collection === c.id)
+                              .sort((a, b) => b.featured - a.featured);
+          // Best photograph in this collection that is not already on the page.
+          const cover = shots.find(p => !used.has(p.slug)) || shots[0];
           if (!cover) return "";
+          used.add(cover.slug);
           return `
             <a class="coll-card" href="portfolio.html#${c.id}">
               <img src="photos/thumb/${cover.slug}.jpg"
@@ -263,23 +272,24 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`).join("");
 
   /* --- silent ambient loops --- */
+  // Every clip carries a label. Tagging only the Handycam ones made the
+  // camcorder look like the odd one out rather than a deliberate choice.
   const CLIPS = [
-    // The two Handycam clips lead: they are the sample for the vintage
-    // package, and the tag stops the soft, grainy look reading as a mistake.
-    { file: "camcorder-table",     alt: "Friends around a restaurant table under string lights, filmed on a standard-definition camcorder", tag: "Sony Handycam" },
-    { file: "camcorder-moon",      alt: "The moon rising through cloud over Lake Michigan, filmed on a standard-definition camcorder", tag: "Sony Handycam" },
-    { file: "camcorder-lakefront", alt: "Boats moored off the Chicago lakefront at dusk, filmed on a standard-definition camcorder", tag: "Sony Handycam" },
-    { file: "river-bluehour",   alt: "The Chicago River at blue hour, seen from above" },
-    { file: "chicago-festival", alt: "A summer street festival crowd with the Chicago skyline behind" },
-    { file: "festival-crowd",   alt: "A crowd along the barrier at a Chicago street festival" },
-    { file: "calligraphy",      alt: "A hand writing Arabic calligraphy in ink on paper" },
-    { file: "clinic-corridor",  alt: "Two people talking in a hospital corridor" },
-    { file: "petra-siq",        alt: "The Treasury at Petra seen through the narrow walls of the Siq" },
-    { file: "lake-dusk",        alt: "Lake Michigan at dusk with the Navy Pier wheel on the horizon" },
-    { file: "bakery",           alt: "A baker turning flatbread out of the oven in Jordan" },
-    { file: "lakefront-picnic", alt: "A picnic laid out on the lakefront grass with the skyline behind" },
-    { file: "water-window",     alt: "Water moving behind glass" },
+    { file: "camcorder-table",     tag: "Sony Handycam",          alt: "Friends around a restaurant table under string lights, filmed on a standard-definition camcorder" },
+    { file: "camcorder-moon",      tag: "Sony Handycam",          alt: "The moon rising through cloud over Lake Michigan, filmed on a standard-definition camcorder" },
+    { file: "camcorder-lakefront", tag: "Sony Handycam",          alt: "Boats moored off the Chicago lakefront at dusk, filmed on a standard-definition camcorder" },
+    { file: "river-bluehour",      tag: "Chicago River",          alt: "The Chicago River at blue hour, seen from above" },
+    { file: "chicago-festival",    tag: "Chicago street festival", alt: "A summer street festival crowd with the Chicago skyline behind" },
+    { file: "festival-crowd",      tag: "Chicago street festival", alt: "A crowd along the barrier at a Chicago street festival" },
+    { file: "calligraphy",         tag: "Arabic calligraphy",     alt: "A hand writing Arabic calligraphy in ink on paper" },
+    { file: "clinic-corridor",     tag: "Clinic corridor",        alt: "Two people talking in a hospital corridor" },
+    { file: "petra-siq",           tag: "Petra, Jordan",          alt: "The Treasury at Petra seen through the narrow walls of the Siq" },
+    { file: "bakery",              tag: "Bakery, Jordan",         alt: "A baker turning flatbread out of the oven" },
+    { file: "lake-dusk",           tag: "Lake Michigan",          alt: "Lake Michigan at dusk with the Navy Pier wheel on the horizon" },
+    { file: "lakefront-picnic",    tag: "Chicago lakefront",      alt: "A picnic laid out on the lakefront grass with the skyline behind" },
+    { file: "water-window",        tag: "Through glass",          alt: "Water moving behind glass" },
   ];
+
   document.getElementById("filmstrip").innerHTML = CLIPS.map(c => `
     <figure class="clip-wrap">
       <video class="clip" muted loop playsinline preload="none"
@@ -330,8 +340,15 @@ document.addEventListener("DOMContentLoaded", () => {
     </article>`).join("");
 
   /* --- print teaser + about image --- */
+  // Preferred four, minus anything already shown, topped up from the rest.
   const teaser = ["one-red-light", "the-dome", "chinatown-neon", "winter-branches"]
-    .filter(s => bySlug[s]);
+    .filter(s => bySlug[s] && !used.has(s));
+  if (teaser.length < 4) {
+    PHOTOS.slice()
+      .sort((a, b) => b.featured - a.featured)
+      .forEach(p => { if (teaser.length < 4 && !used.has(p.slug) && !teaser.includes(p.slug)) teaser.push(p.slug); });
+  }
+  teaser.forEach(s => used.add(s));
   document.getElementById("print-teaser").innerHTML = teaser.map(s => `
     <a href="prints.html#order-${s}" style="display:block;overflow:hidden">
       <img src="photos/thumb/${s}.jpg" alt="${esc(bySlug[s].title)}"

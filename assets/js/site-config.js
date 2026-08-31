@@ -199,28 +199,27 @@ const SITE = {
      order arrives in your inbox. You then order that print from Google
      Photos, ship it to them, and keep the difference.
 
-     `cost` is what you expect to pay Google Photos. It is NEVER shown on
-     the site. It is here so you can see your own margin at a glance, and
-     so the README can print a margin table. CHECK THESE AGAINST GOOGLE
-     PHOTOS BEFORE YOU LAUNCH; their prices move and these are estimates.
-
      `price` is what the customer pays.
+
+     Your own supplier costs are deliberately NOT in this file. Every visitor
+     downloads it, so anything written here is public. They live in
+     tools/costs.local.md, which is gitignored and never published.
      `ratio` is the print's aspect ratio, used to warn about cropping.
      ------------------------------------------------------------------ */
   printProducts: [
-    { id: "print-4x6",    family: "Print",  size: '4 × 6"',   ratio: "3:2", price: 12,  cost: 0.45 },
-    { id: "print-5x7",    family: "Print",  size: '5 × 7"',   ratio: "7:5", price: 18,  cost: 2.00 },
-    { id: "print-8x10",   family: "Print",  size: '8 × 10"',  ratio: "5:4", price: 28,  cost: 4.00 },
-    { id: "print-11x14",  family: "Print",  size: '11 × 14"', ratio: "14:11", price: 45, cost: 10.00 },
-    { id: "print-16x20",  family: "Print",  size: '16 × 20"', ratio: "5:4", price: 70,  cost: 20.00 },
+    { id: "print-4x6",    family: "Print",  size: '4 × 6"',   ratio: "3:2", price: 12 },
+    { id: "print-5x7",    family: "Print",  size: '5 × 7"',   ratio: "7:5", price: 18 },
+    { id: "print-8x10",   family: "Print",  size: '8 × 10"',  ratio: "5:4", price: 28 },
+    { id: "print-11x14",  family: "Print",  size: '11 × 14"', ratio: "14:11", price: 45 },
+    { id: "print-16x20",  family: "Print",  size: '16 × 20"', ratio: "5:4", price: 70 },
 
-    { id: "canvas-11x14", family: "Canvas", size: '11 × 14"', ratio: "14:11", price: 95, cost: 30.00 },
-    { id: "canvas-16x20", family: "Canvas", size: '16 × 20"', ratio: "5:4", price: 135, cost: 45.00 },
-    { id: "canvas-20x30", family: "Canvas", size: '20 × 30"', ratio: "3:2", price: 195, cost: 70.00 },
+    { id: "canvas-11x14", family: "Canvas", size: '11 × 14"', ratio: "14:11", price: 95 },
+    { id: "canvas-16x20", family: "Canvas", size: '16 × 20"', ratio: "5:4", price: 135 },
+    { id: "canvas-20x30", family: "Canvas", size: '20 × 30"', ratio: "3:2", price: 195 },
 
-    { id: "framed-8x10",  family: "Framed", size: '8 × 10"',  ratio: "5:4", price: 85,  cost: 40.00 },
-    { id: "framed-11x14", family: "Framed", size: '11 × 14"', ratio: "14:11", price: 120, cost: 55.00 },
-    { id: "framed-16x20", family: "Framed", size: '16 × 20"', ratio: "5:4", price: 175, cost: 80.00 },
+    { id: "framed-8x10",  family: "Framed", size: '8 × 10"',  ratio: "5:4", price: 85 },
+    { id: "framed-11x14", family: "Framed", size: '11 × 14"', ratio: "14:11", price: 120 },
+    { id: "framed-16x20", family: "Framed", size: '16 × 20"', ratio: "5:4", price: 175 },
   ],
 
   familyNotes: {

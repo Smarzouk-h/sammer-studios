@@ -72,30 +72,13 @@ find the original in your library without guessing.
 
 ### What you keep
 
-`cost` in the config is what you expect Google Photos to charge you. It is
-never shown on the site; it is only there so you can see your margin.
+Your costs and margins are in `tools/costs.local.md`. That file is gitignored
+and never published, because `site-config.js` is downloaded by every visitor
+and anything in it is public. Supplier costs do not belong on a public site.
 
-| Product            | You pay (est.) | They pay |  Margin |
-|--------------------|----------------|----------|---------|
-| Print 4 × 6"       |          $0.45 |      $12 |  $11.55 |
-| Print 5 × 7"       |          $2.00 |      $18 |  $16.00 |
-| Print 8 × 10"      |          $4.00 |      $28 |  $24.00 |
-| Print 11 × 14"     |         $10.00 |      $45 |  $35.00 |
-| Print 16 × 20"     |         $20.00 |      $70 |  $50.00 |
-| Canvas 11 × 14"    |         $30.00 |      $95 |  $65.00 |
-| Canvas 16 × 20"    |         $45.00 |     $135 |  $90.00 |
-| Canvas 20 × 30"    |         $70.00 |     $195 | $125.00 |
-| Framed 8 × 10"     |         $40.00 |      $85 |  $45.00 |
-| Framed 11 × 14"    |         $55.00 |     $120 |  $65.00 |
-| Framed 16 × 20"    |         $80.00 |     $175 |  $95.00 |
-
-Plus a flat $9 shipping on every order, which roughly covers a rigid mailer
-and postage on the small sizes and undercharges slightly on canvas.
-
-**Check those costs before you launch.** They are estimates, Google moves its
-prices, and canvas and framed products in particular vary. Order one 8×10 of
-your own work first. You will learn the real cost, the real turnaround, and
-what the paper actually looks like, which is worth more than any of this.
+Check those numbers against Google Photos before you rely on them, and order
+one 8x10 of your own work first. You will learn the real cost, the real
+turnaround, and what the paper actually looks like.
 
 ### Taking the money
 
