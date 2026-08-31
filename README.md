@@ -299,35 +299,36 @@ and to attach a real domain. To update the site you drag the folder again.
 
 ### Your own domain
 
-**sammerstudios.com is available.** I checked; whois returns no match. So is
-sammermarzouk.com. I cannot buy it for you, since that needs an account and a
-card, but the rest is one command.
+sammerstudios.com is bought and sitting at Cloudflare. Two steps left.
 
-1. Buy it. Namecheap, Cloudflare, or Porkbun, roughly $12 a year. Cloudflare
-   sells at cost and does not do the cheap-first-year-then-triple thing.
-2. At the registrar, add these DNS records:
+**1. Point the DNS at GitHub.** Cloudflare dashboard, sammerstudios.com, DNS,
+Records. Add five, all with the grey **DNS only** cloud, not the orange one:
 
-       Type   Name   Value
-       A      @      185.199.108.153
-       A      @      185.199.109.153
-       A      @      185.199.110.153
-       A      @      185.199.111.153
-       CNAME  www    smarzouk-h.github.io
+    A      @     185.199.108.153
+    A      @     185.199.109.153
+    A      @     185.199.110.153
+    A      @     185.199.111.153
+    CNAME  www   smarzouk-h.github.io
 
-3. Then here:
+The grey cloud matters. With Cloudflare proxying, GitHub cannot issue the
+certificate and you get a redirect loop. Switch it on afterwards if you want
+Cloudflare's caching.
 
-       ./tools/set-domain.sh https://sammerstudios.com
-       ./tools/publish.sh
+**2. Run one command.**
 
-   That rewrites every canonical and og:url tag, the sitemap and robots.txt,
-   and writes the CNAME file GitHub Pages needs.
-4. In the repository, Settings > Pages, tick **Enforce HTTPS** once the
-   certificate has been issued. That can take an hour.
+```bash
+./tools/go-live.sh
+```
 
-DNS takes anywhere from a few minutes to a day to propagate. The github.io
-address keeps working the whole time.
+It waits until DNS actually points at GitHub, then rewrites every canonical,
+og:url and og:image tag, the sitemap and robots.txt, writes the CNAME file,
+pushes, registers the domain with GitHub Pages, and turns on HTTPS once the
+certificate is issued. If DNS is not ready it stops and tells you, rather than
+half-migrating the site.
 
-Send me the word once you have bought it and I will run steps 3 and 4.
+That ordering is deliberate. Setting the custom domain before DNS resolves
+makes the github.io address redirect to a host that does not answer, which
+takes the site offline until DNS catches up.
 
 ### Previewing locally
 
