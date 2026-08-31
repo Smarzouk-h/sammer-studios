@@ -40,6 +40,12 @@ arrives as email.
 
 Check spam if you cannot see it.
 
+**FormSubmit activates per domain, not per email address.** Moving the site to
+sammerstudios.com meant the form needed activating again from the new address.
+There is a second activation email waiting; click that one too. If you ever
+move the site again, expect to do this once more. The symptom is submissions
+quietly opening the visitor's mail app instead of sending.
+
 Until you click it, nothing breaks and nothing is lost: the site notices the
 endpoint is not live and opens the visitor's email app with the whole message
 pre-filled instead. That fallback also covers FormSubmit being down later.
