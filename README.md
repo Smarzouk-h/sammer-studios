@@ -260,30 +260,19 @@ and Northwestern Medicine.
 The site is static, so anything that serves files will host it. Two routes,
 both free. Pick one.
 
-### GitHub Pages, using the account you already have
+### It is already live
 
-Your machine is already set up as **Smarzouk-h**, so this is the shortest path.
-The GitHub CLI is installed but not logged in, and logging in is something only
-you can do:
+    https://smarzouk-h.github.io/sammer-studios/
 
-```bash
-gh auth login
-```
-
-Choose GitHub.com, then HTTPS, then log in with a web browser. Once that is
-done:
+The repository is at github.com/Smarzouk-h/sammer-studios. To publish any
+change from now on:
 
 ```bash
 ./tools/publish.sh
 ```
 
-That creates the repository, pushes everything, switches Pages on, and prints
-your URL. It will be:
-
-    https://smarzouk-h.github.io/sammer-studios/
-
-The first push takes a few minutes because the photographs are large. Every
-later update is the same one command: it commits what changed and pushes.
+That commits whatever has changed and pushes it. GitHub rebuilds the site in
+about a minute. You never need to touch the repository by hand.
 
 ### Netlify Drop, if you would rather not touch a terminal
 
