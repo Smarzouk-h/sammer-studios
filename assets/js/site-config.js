@@ -144,6 +144,19 @@ const SITE = {
       ],
     },
     {
+      id: "vintage",
+      name: "Vintage & Camcorder",
+      price: "From $150",
+      duration: "Add on, or book alone",
+      summary: "Shot on a 2006 Canon Rebel and a standard-definition Sony Handycam. Soft, grainy, and dated on purpose. Add it to any session for a second set of images that look nothing like the first.",
+      includes: [
+        "2006 Canon Rebel XTi stills",
+        "Sony DCR-DVD650 Handycam video, standard definition",
+        "Add to any session, or book on its own",
+        "Delivered ungraded, the way the cameras saw it",
+      ],
+    },
+    {
       id: "calligraphy",
       name: "Calligraphy Commissions",
       price: "From $60",
@@ -253,9 +266,21 @@ const SITE = {
      with just your first name and what we shot."
      ------------------------------------------------------------------ */
   testimonials: [
-    { quote: "", who: "", detail: "ERAS headshots" },
-    { quote: "", who: "", detail: "Engagement session" },
-    { quote: "", who: "", detail: "Bridal portraits" },
+    {
+      quote: "Great and professional. Allowed me to see the photos, and much cheaper than the other options. Super great quality and used on my application. Highest recommendation.",
+      who: "Medical student",
+      detail: "ERAS headshots",
+    },
+    {
+      quote: "We could not be happier with the pictures. They were super great, and Sammer was very accommodating.",
+      who: "Engaged couple",
+      detail: "Engagement session",
+    },
+    {
+      quote: "Super professional. Loved the pictures and how they came out. Would recommend.",
+      who: "Physician",
+      detail: "Conference portraits",
+    },
   ],
 
   /* --------------------------------------------------------------------
@@ -265,11 +290,18 @@ const SITE = {
     lead: "I have been photographing for about five years. I am also an MD/PhD student at Northwestern, which turns out to matter more to this work than it sounds like it should.",
     body: [
       "It means I am comfortable in the places other photographers get nervous: hospitals, labs, lecture halls, a building on its opening day. I shot Northwestern Medicine's Bronzeville opening. I photograph ERAS headshots for people applying to residency, and I know what that photo has to do, because I am on the same road.",
-      "The rest of the work is engagements, graduations, events, and product photography for small businesses. I shot Dar Baklava's packaging and pastries. In between I walk the city at night, which is where most of the prints on this site come from: the Chicago River at blue hour, New York at two in the morning, a summer in Jordan, and more Smoky Mountain creeks than strictly necessary.",
+      "The rest of the work is engagements, graduations, events, and product photography for small businesses. I shot Dar Baklava's packaging and pastries on a Canon Rebel XTi from 2006, which I still use, because the camera matters a great deal less than people think. In between I walk the city at night, which is where most of the prints on this site come from: the Chicago River at blue hour, New York at two in the morning, a summer in Jordan, and more Smoky Mountain creeks than strictly necessary.",
       "I also write Arabic calligraphy, by hand in ink. It started as its own thing and has quietly become part of the job, mostly for invitations and gifts. If you are booking an engagement session and want the save-the-dates written by hand, that is the same pair of hands.",
+      "I also keep an old standard-definition Handycam around. If you want a set of pictures or a clip that looks like it was found rather than made, that is a thing I will happily do.",
       "Everything on this site is available as a print. I make them to order.",
     ],
-    gear: ["Sony A7 IV", "Sony FE 28-70mm f/3.5-5.6 OSS", "Canon EOS Rebel XTi (retired, sentimental)", "Ink, nib, and a light box"],
+    gear: [
+      "Sony A7 IV",
+      "Sony FE 28-70mm f/3.5-5.6 OSS",
+      "Canon EOS Rebel XTi, 2006, still working",
+      "Sony DCR-DVD650 Handycam, Carl Zeiss lens, standard definition",
+      "Ink, nib, and a light box",
+    ],
   },
 };
 

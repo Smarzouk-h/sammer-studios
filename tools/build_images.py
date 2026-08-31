@@ -72,6 +72,27 @@ def lqip(src):
         return "data:image/jpeg;base64," + base64.b64encode(f.read()).decode()
 
 
+# Cameras worth naming on the site. Everything else is left blank: the make and
+# model of a current body is noise, but "shot on a 2006 Rebel" is the point.
+VINTAGE = {
+    "Canon EOS DIGITAL REBEL XTi": "Canon Rebel XTi, 2006",
+    "Canon EOS 5D": "Canon EOS 5D, 2005",
+    "DCR-DVD650": "Sony Handycam DCR-DVD650",
+}
+
+
+def camera_of(path):
+    """Read the camera model from the ORIGINAL, before metadata is stripped."""
+    try:
+        from PIL import Image
+        from PIL.ExifTags import TAGS
+        ex = Image.open(path).getexif() or {}
+        tags = {TAGS.get(k, k): v for k, v in ex.items()}
+        return str(tags.get("Model") or "").strip()
+    except Exception:
+        return ""
+
+
 def dims(path):
     r = subprocess.run(["magick", "identify", "-format", "%w %h", path],
                        capture_output=True, text=True, check=True)
@@ -87,6 +108,7 @@ def build(entry):
     convert(src, f"{OUT}/photos/full/{slug}.webp",  FULL_EDGE, 82)
     convert(src, f"{OUT}/photos/full/{slug}.jpg",   FULL_EDGE, 84)
     w, h = dims(f"{OUT}/photos/full/{slug}.jpg")
+    model = camera_of(src)
     if slug == HERO_SLUG:
         # Responsive hero. Kept at or below 2400px: some browsers fail to
         # composite very large WebP images, and phones should not pull 3000px.
@@ -96,6 +118,7 @@ def build(entry):
     return {
         "slug": slug, "title": title, "collection": coll, "location": loc,
         "featured": feat, "w": w, "h": h,
+        "vintage": VINTAGE.get(model, ""),
         "orient": "square" if abs(w - h) / max(w, h) < 0.06 else ("landscape" if w > h else "portrait"),
     }
 

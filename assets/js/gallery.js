@@ -188,7 +188,9 @@ const Lightbox = {
 
     $(".lb-count", el).textContent = `${i + 1} / ${this.list.length}`;
     $(".lb-foot h3", el).textContent = p.title;
-    $(".lb-foot .meta", el).textContent = `${p.location} · ${collectionName(p.collection)}`;
+    $(".lb-foot .meta", el).innerHTML =
+      `${esc(p.location)} · ${esc(collectionName(p.collection))}` +
+      (p.vintage ? ` · <span class="vintage-tag">${esc(p.vintage)}</span>` : "");
     $$(".lb-nav", el).forEach(b => b.style.display = this.list.length > 1 ? "" : "none");
 
     history.replaceState({ lb: true }, "", `#photo-${p.slug}`);

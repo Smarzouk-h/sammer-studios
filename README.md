@@ -114,32 +114,38 @@ you send anything to print.
 
 ## Testimonials
 
-There is a section on the booking page for these, sitting under the packages
-where it does the most work. It is **hidden right now**, and it stays hidden
-until you paste in real quotes. An entry with an empty quote is skipped, and if
-all three are empty the whole section never renders.
+Three are live on the booking page, under the packages: the ERAS student, the
+engaged couple, and the physician from the conference. I fixed typos and split
+run-on sentences, nothing else. The claims and the phrasing are theirs.
 
-Three slots are waiting in `assets/js/site-config.js`, one each for the ERAS
-student, the engagement family, and the bridal couple:
+They are credited by role at the moment ("Medical student", "Engaged couple",
+"Physician"). A first name is more convincing than a job title, so if any of
+the three are happy to be named, put it in `who` in the config. An entry with
+an empty `quote` is skipped, so you can add a fourth by pasting one in.
 
-```js
-testimonials: [
-  { quote: "", who: "", detail: "ERAS headshots" },
-  ...
-]
-```
+## The old cameras
 
-I did not write the quotes. They have to be the clients' own words, in their
-own phrasing, or they are not testimonials. Something to send the three people
-who already said yes:
+You still shoot a 2006 Canon Rebel XTi and you have a standard-definition Sony
+Handycam, so both now earn their place rather than sitting in a drawer:
 
-> Would you mind sending me a sentence or two about what the session was like?
-> I am putting a few on my website. I would use just your first name and what
-> we shot, nothing else, and I will show you where it goes before it is live.
+- **A "Vintage & Camcorder" package**, from $150, that can be added to any
+  session or booked alone. Retro camcorder footage is genuinely in demand for
+  weddings and parties right now, and you own the gear for it.
+- **An "Old cameras" filter** on the portfolio, under the collection buttons.
+  It cuts across the collections rather than replacing them: a photograph stays
+  in Product or Travel and can also be seen with the rest of the Rebel work.
+- The camera is named in the lightbox caption, but only for the old bodies.
+  Naming the A7 IV on every frame would be noise; "Canon Rebel XTi, 2006" is
+  the point.
 
-Paste what comes back into `quote`, put their first name in `who`, and the
-section appears. Keep `detail` as the shoot type. If someone would rather not
-be named, "A" plus an initial is fine as long as the words are genuinely theirs.
+That filter is generated from the EXIF in your originals, so it stays correct
+on its own. Nine photographs qualify today, including all three Dar Baklava
+frames and Ameyoko After Dark. That is the strongest argument for the package:
+your paid product commission was shot on a nineteen-year-old entry-level body.
+
+**What is missing is Handycam footage.** The package describes video I cannot
+show, because you have not sent any. Even thirty seconds of something ordinary
+would let me put a clip in the motion strip and make the offer real.
 
 ## Pulling in Instagram
 
@@ -242,6 +248,7 @@ Sections are built and waiting; they need files.
    current ones are not really.
 4. **More ERAS headshots.** Two is enough to prove it; five or six would let
    the collection stand as a portfolio in its own right.
+5. **Handycam footage.** Anything at all, so the vintage package has a sample.
 
 Covered now: ERAS headshots, the American Muslim Physician Association banquet,
 and Northwestern Medicine.

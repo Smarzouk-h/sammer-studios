@@ -814,3 +814,6 @@ select {
   display: block; font-size: .68rem; letter-spacing: .18em;
   text-transform: uppercase; color: var(--gold-soft); margin-top: .35rem;
 }
+
+/* --------------------------------------------------------- vintage tag */
+.vintage-tag { color: var(--gold-soft); }

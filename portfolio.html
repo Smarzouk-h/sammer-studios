@@ -93,17 +93,28 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="filter-label">${esc(g.name)}</span>
         ${g.items.map(c =>
           `<button class="filter" data-id="${c.id}" aria-pressed="false">${esc(c.name)}</button>`).join("")}
-      </div>`).join("");
+      </div>`).join("") +
+    // A tag that cuts across the collections rather than replacing them: these
+    // photographs stay where they belong and can also be seen together.
+    (ordered.some(p => p.vintage) ? `
+      <div class="filter-row">
+        <span class="filter-label">Shot on</span>
+        <button class="filter" data-id="vintage" aria-pressed="false">Old cameras</button>
+      </div>` : "");
 
   function show(id, push = true) {
-    current = id === "all" ? ordered : ordered.filter(p => p.collection === id);
+    current = id === "all"     ? ordered
+            : id === "vintage" ? ordered.filter(p => p.vintage)
+            :                    ordered.filter(p => p.collection === id);
 
     grid.innerHTML = current.map((p, i) =>
       tileHTML(p, { sizes: "(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 25vw", eager: i < 6 })).join("");
 
     empty.style.display = current.length ? "none" : "block";
     const tab = TABS.find(t => t.id === id);
-    const intro = tab && tab.blurb ? tab.blurb : "";
+    const intro = id === "vintage"
+      ? "Everything here was made on a 2006 Canon Rebel XTi or an older body, including the Dar Baklava commission. The camera matters a great deal less than people think."
+      : (tab && tab.blurb ? tab.blurb : "");
     blurbEl.textContent = intro;
     blurbEl.hidden = !intro;
 
