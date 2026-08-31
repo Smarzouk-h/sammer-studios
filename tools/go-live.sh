@@ -21,8 +21,24 @@ REPO="${REPO_NAME:-sammer-studios}"
 cd "$(dirname "$0")/.."
 
 echo "Checking DNS for $DOMAIN ..."
-A=$(dig +short A "$DOMAIN" @1.1.1.1 2>/dev/null | tr '\n' ' ')
-if ! echo "$A" | grep -q "185.199"; then
+
+# A single lookup is not evidence: public resolvers drop or rate-limit queries
+# often enough that one empty answer means nothing. Ask a few, a few times.
+lookup_a() {
+  for server in 1.1.1.1 8.8.8.8 9.9.9.9 ""; do
+    out=$(dig +short +time=3 +tries=1 A "$DOMAIN" ${server:+@$server} 2>/dev/null | tr '\n' ' ')
+    if echo "$out" | grep -q "185.199"; then echo "$out"; return 0; fi
+  done
+  return 1
+}
+
+A=""
+for _ in 1 2 3 4 5; do
+  if A=$(lookup_a); then break; fi
+  sleep 3
+done
+
+if ! echo "${A:-}" | grep -q "185.199"; then
   cat >&2 <<EOF
 
 $DOMAIN does not point at GitHub yet.
