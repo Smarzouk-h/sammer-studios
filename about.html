@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Sammer Studios</title>
+<meta name="description" content="Sammer Marzouk is an MD/PhD student at Northwestern and a photographer in Chicago. Headshots, engagements, events, product photography, fine-art prints, and Arabic calligraphy.">
+<link rel="canonical" href="https://sammerstudios.com/about.html">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="About | Sammer Studios">
+<meta property="og:description" content="A photographer inside medicine. Five years behind a camera, based in Chicago.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="page-solid">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head" id="site-head"></header>
+
+<main id="main">
+
+  <section class="page-head wrap">
+    <p class="eyebrow">About</p>
+    <h1>Sammer<br>Marzouk</h1>
+  </section>
+
+  <section class="section section--tight wrap">
+    <div class="grid-2">
+      <div id="about-portrait"></div>
+      <div>
+        <p class="lede" style="margin-bottom:1.6rem" id="about-lead"></p>
+        <div class="prose" id="about-body"></div>
+
+        <div class="arabic-rule">
+          <span class="arabic-mark arabic-mark--lg" id="arabic-mark" dir="rtl"></span>
+        </div>
+
+        <h3 style="font-size:1.1rem;margin:2.4rem 0 1rem">What I shoot with</h3>
+        <div class="pill-row" id="gear"></div>
+
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2.4rem">
+          <a class="btn btn--gold" href="book.html">Book a session</a>
+          <a class="btn btn--ghost" href="portfolio.html">See the work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section class="section section--line wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Experience</p>
+        <h2>Work I have<br>been trusted with</h2>
+        <p>A short list, and an honest one. No logos I did not earn.</p>
+      </div>
+    </div>
+    <div class="experience" id="experience"></div>
+  </section>
+
+  <!-- what I do -->
+  <section class="section section--line wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Commissions</p>
+        <h2>What I take on</h2>
+      </div>
+      <a class="link-more" href="book.html">Rates &amp; booking →</a>
+    </div>
+    <div class="grid-3" id="mini-packages"></div>
+  </section>
+
+  <!-- contact -->
+  <section class="section section--line wrap" id="contact">
+    <div class="grid-2">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 style="font-size:clamp(1.9rem,4.4vw,3.2rem)">Get in touch</h2>
+        <div class="prose" style="margin-top:1.6rem">
+          <p>The fastest way to reach me is email, or a DM on the studio account. I read both, though I answer email more reliably.</p>
+        </div>
+        <div id="contact-portrait" style="margin-top:1.8rem"></div>
+      </div>
+      <div class="card">
+        <div style="display:grid;gap:1.5rem">
+          <div>
+            <p class="eyebrow" style="margin-bottom:.4rem">Email</p>
+            <a href="mailto:" data-mail style="font-size:1.1rem;text-decoration:none;color:var(--gold-soft)"><span data-site="email"></span></a>
+          </div>
+          <div id="phone-block" hidden>
+            <p class="eyebrow" style="margin-bottom:.4rem">Phone</p>
+            <a href="#" id="phone-link" style="font-size:1.1rem;text-decoration:none;color:var(--gold-soft)"></a>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin-bottom:.4rem">Photography</p>
+            <a id="ig-studio" href="#" target="_blank" rel="noopener" class="ig" style="font-size:1.1rem;text-decoration:none;color:var(--paper)"></a>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin-bottom:.4rem">Personal</p>
+            <a id="ig-personal" href="#" target="_blank" rel="noopener" class="ig" style="font-size:1.1rem;text-decoration:none;color:var(--paper)"></a>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin-bottom:.4rem">Based in</p>
+            <p style="margin:0;font-size:1.1rem" data-site="baseCity"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- strip of work -->
+  <section class="section section--line wrap">
+    <div class="masonry" id="about-strip" style="columns:5 200px"></div>
+  </section>
+
+</main>
+
+<footer class="site-foot" id="site-foot"></footer>
+
+<script src="assets/js/site-config.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/gallery.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const A = SITE.about;
+
+  document.getElementById("experience").innerHTML = SITE.experience.map(e => `
+    <div class="exp">
+      <b>${esc(e.client)}</b>
+      <span>${esc(e.work)}</span>
+    </div>`).join("");
+
+  document.getElementById("about-lead").textContent = A.lead;
+  document.getElementById("about-body").innerHTML =
+    A.body.map(p => `<p>${esc(p)}</p>`).join("");
+  const am = document.getElementById("arabic-mark");
+  if (am) am.textContent = SITE.arabicMark || "";
+
+  document.getElementById("gear").innerHTML =
+    A.gear.map(g => `<span class="pill">${esc(g)}</span>`).join("");
+
+  const portrait = bySlug[SITE.portraitsOfMe.aboutPage] || bySlug["records"];
+  document.getElementById("about-portrait").innerHTML = `
+    <img src="photos/full/${portrait.slug}.jpg" alt="Sammer Marzouk"
+         style="width:100%;aspect-ratio:4/5;object-fit:cover" loading="eager">
+    <p style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dimmer);margin-top:.8rem">
+      Sammer Marzouk · ${esc(portrait.location)}
+    </p>`;
+
+  document.getElementById("mini-packages").innerHTML = SITE.packages.map(p => `
+    <a class="card pkg" href="book.html#${esc(p.id)}" style="text-decoration:none">
+      <h3 style="font-size:1.25rem">${esc(p.name)}</h3>
+      <div class="price" style="font-size:1.5rem">${esc(p.price)}</div>
+      <div class="dur">${esc(p.duration)}</div>
+      <p class="sum" style="margin-bottom:0">${esc(p.summary)}</p>
+    </a>`).join("");
+
+  /* contact block */
+  const ig = SITE.social;
+  const s = document.getElementById("ig-studio");
+  s.href = `https://instagram.com/${ig.studioInstagram}`;
+  s.innerHTML = `${IG_SVG} @${esc(ig.studioInstagram)}`;
+  const pr = document.getElementById("ig-personal");
+  pr.href = `https://instagram.com/${ig.personalInstagram}`;
+  pr.innerHTML = `${IG_SVG} @${esc(ig.personalInstagram)}`;
+
+  if (SITE.phone) {
+    const pb = document.getElementById("phone-block");
+    pb.hidden = false;
+    const pl = document.getElementById("phone-link");
+    pl.href = `tel:${SITE.phone.replace(/\s/g, "")}`;
+    pl.textContent = SITE.phone;
+  }
+
+  document.querySelectorAll("[data-mail]").forEach(a => {
+    a.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Photography enquiry")}`;
+  });
+
+  const contactPortrait = bySlug[SITE.portraitsOfMe.contact];
+  const cpHost = document.getElementById("contact-portrait");
+  if (cpHost && contactPortrait) {
+    cpHost.innerHTML = `
+      <img src="photos/full/${contactPortrait.slug}.jpg" alt="Sammer Marzouk"
+           style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px" loading="lazy">`;
+  }
+
+  /* a strip of recent work at the bottom */
+  const strip = PHOTOS.filter(p => p.featured > 0)
+    .sort((a, b) => b.featured - a.featured).slice(0, 10);
+  renderGrid(document.getElementById("about-strip"), strip,
+    { sizes: "(max-width: 640px) 50vw, 20vw" });
+});
+</script>
+</body>
+</html>

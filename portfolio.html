@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio | Sammer Studios</title>
+<meta name="description" content="Photographs by Sammer Marzouk: Chicago, New York, Jordan, the Smoky Mountains, and portraits. Browse by collection.">
+<link rel="canonical" href="https://sammerstudios.com/portfolio.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfolio | Sammer Studios">
+<meta property="og:description" content="Chicago, New York, Jordan, nature, and portraits.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="page-solid">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head" id="site-head"></header>
+
+<main id="main">
+
+  <section class="page-head wrap">
+    <p class="eyebrow">Portfolio</p>
+    <h1>The work</h1>
+    <p class="lede" style="color:var(--paper-dim)">
+      Five years, a few cities, and one camera that has been dropped more than once.
+      Click any photograph to see it large, or to order it as a print.
+    </p>
+  </section>
+
+  <section class="section section--tight wrap">
+    <div id="filters" role="group" aria-label="Filter by collection"></div>
+    <p class="eyebrow" id="collection-blurb" style="max-width:60ch;margin-bottom:2rem"></p>
+    <div class="masonry" id="grid"></div>
+    <p id="empty" style="display:none;color:var(--paper-dim);text-align:center;padding:4rem 0">
+      Nothing in this collection yet.
+    </p>
+  </section>
+
+  <section class="section section--line wrap" style="text-align:center">
+    <div class="reveal">
+      <p class="eyebrow">Prints</p>
+      <h2 style="font-size:clamp(1.9rem,4.5vw,3.2rem);margin-bottom:1.2rem">Any of these can hang on a wall</h2>
+      <p style="color:var(--paper-dim);max-width:44ch;margin:0 auto 2rem">
+        Paper, canvas, or framed, made to order and shipped anywhere.
+      </p>
+      <a class="btn btn--gold" href="prints.html">Open the print shop</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot" id="site-foot"></footer>
+
+<script src="assets/js/site-config.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/gallery.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const grid    = document.getElementById("grid");
+  const empty   = document.getElementById("empty");
+  const blurbEl = document.getElementById("collection-blurb");
+  const filters = document.getElementById("filters");
+
+  // Featured photographs first, so the strongest work leads each collection.
+  const ordered = PHOTOS.slice().sort((a, b) => b.featured - a.featured);
+  let current = [];
+
+  const TABS = [{ id: "all", name: "Everything", blurb: "" }, ...COLLECTIONS];
+
+  // Grouped so commissioned work reads separately from personal work.
+  const groups = [];
+  COLLECTIONS.forEach(c => {
+    let g = groups.find(x => x.name === (c.group || "Work"));
+    if (!g) groups.push(g = { name: c.group || "Work", items: [] });
+    g.items.push(c);
+  });
+  filters.innerHTML =
+    `<div class="filter-row">
+       <button class="filter" data-id="all" aria-pressed="true">Everything</button>
+     </div>` +
+    groups.map(g => `
+      <div class="filter-row">
+        <span class="filter-label">${esc(g.name)}</span>
+        ${g.items.map(c =>
+          `<button class="filter" data-id="${c.id}" aria-pressed="false">${esc(c.name)}</button>`).join("")}
+      </div>`).join("");
+
+  function show(id, push = true) {
+    current = id === "all" ? ordered : ordered.filter(p => p.collection === id);
+
+    grid.innerHTML = current.map((p, i) =>
+      tileHTML(p, { sizes: "(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 25vw", eager: i < 6 })).join("");
+
+    empty.style.display = current.length ? "none" : "block";
+    const tab = TABS.find(t => t.id === id);
+    blurbEl.textContent = tab && tab.blurb ? tab.blurb : "";
+
+    document.querySelectorAll(".filter").forEach(b =>
+      b.setAttribute("aria-pressed", String(b.dataset.id === id)));
+
+    if (push && id !== "all") history.replaceState(null, "", "#" + id);
+    else if (push) history.replaceState(null, "", location.pathname);
+  }
+
+  filters.addEventListener("click", e => {
+    const b = e.target.closest(".filter");
+    if (b) show(b.dataset.id);
+  });
+
+  grid.addEventListener("click", e => {
+    const t = e.target.closest(".tile");
+    if (t) Lightbox.open(current, current.findIndex(p => p.slug === t.dataset.slug));
+  });
+
+  // Deep links: #chicago selects a collection, #photo-slug opens one image.
+  const hash = location.hash.replace("#", "");
+  const isCollection = COLLECTIONS.some(c => c.id === hash);
+  show(isCollection ? hash : "all", false);
+  openFromHash(current);
+});
+</script>
+</body>
+</html>

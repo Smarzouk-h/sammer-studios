@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prints | Sammer Studios</title>
+<meta name="description" content="Fine-art prints of Chicago, New York, Jordan, and the Smoky Mountains by Sammer Marzouk. Lustre paper, wrapped canvas, or framed, made to order.">
+<link rel="canonical" href="https://sammerstudios.com/prints.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prints | Sammer Studios">
+<meta property="og:description" content="Paper, canvas, or framed. Made to order and shipped anywhere.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="page-solid">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head" id="site-head"></header>
+
+<main id="main">
+
+  <section class="page-head wrap">
+    <p class="eyebrow">Print shop</p>
+    <h1>Made to order</h1>
+    <p class="lede" style="color:var(--paper-dim)">
+      Pick a photograph, pick a size, and tell me where to send it. Each print is made
+      individually. Nothing is sitting in a warehouse waiting for you.
+    </p>
+  </section>
+
+  <!-- how it works -->
+  <section class="section section--tight wrap">
+    <div class="grid-3">
+      <div class="card">
+        <p class="eyebrow eyebrow--gold">01</p>
+        <h3 style="font-size:1.3rem">Choose</h3>
+        <p style="color:var(--paper-dim);font-size:.92rem;margin:.7rem 0 0">
+          Any photograph on this site. Paper, canvas, or framed, in the sizes below.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow eyebrow--gold">02</p>
+        <h3 style="font-size:1.3rem">Confirm</h3>
+        <p style="color:var(--paper-dim);font-size:.92rem;margin:.7rem 0 0">
+          Send the order and I will confirm it, then you pay by Venmo or PayPal.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow eyebrow--gold">03</p>
+        <h3 style="font-size:1.3rem">Posted</h3>
+        <p style="color:var(--paper-dim);font-size:.92rem;margin:.7rem 0 0">
+          Printed and shipped, usually within 7–10 days. Flat <span data-ship></span> shipping on any order.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- shop -->
+  <section class="section section--tight wrap">
+    <div class="shop-layout">
+
+      <div>
+        <div class="filters" id="filters" role="group" aria-label="Filter by collection"></div>
+        <div class="masonry" id="grid"></div>
+      </div>
+
+      <aside class="cart-panel">
+        <div class="card" id="cart" style="padding:1.5rem">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.2rem">
+            <h2 style="font-size:1.4rem">Your order</h2>
+            <span style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim)">
+              <span data-cart-count>0</span> item(s)
+            </span>
+          </div>
+          <div id="cart-body"></div>
+        </div>
+
+        <div class="card" style="margin-top:1rem;padding:1.4rem">
+          <h3 style="font-size:1.05rem;margin-bottom:.9rem">Sizes &amp; prices</h3>
+          <div id="price-table" style="display:grid;gap:.9rem"></div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="section section--line wrap">
+    <div class="grid-2">
+      <div>
+        <p class="eyebrow">Good to know</p>
+        <h2 style="font-size:clamp(1.7rem,3.6vw,2.6rem)">The small print</h2>
+      </div>
+      <div class="prose">
+        <p><b style="color:var(--paper)">Cropping.</b> Most of these photographs are 3:2. An 8×10 or a 16×20 is 5:4, so a little of the long edge has to go. Say the word in your order notes and I will send you a proof of the crop before anything is printed.</p>
+        <p><b style="color:var(--paper)">Colour.</b> Screens are brighter than paper. Prints come out slightly deeper than what you see here, which is usually what you want on a wall.</p>
+        <p><b style="color:var(--paper)">Payment.</b> Nothing is taken when you submit an order. Once I confirm it, you pay by Venmo or PayPal and I send the job to print. The buttons appear as soon as your order goes through.</p>
+        <p><b style="color:var(--paper)">Something bigger?</b> If you want a size that is not listed, or a print of something you saw on my Instagram that is not on this site, just ask.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot" id="site-foot"></footer>
+
+<script src="assets/js/site-config.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/gallery.js"></script>
+<script src="assets/js/shop.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.getElementById("grid");
+  const filters = document.getElementById("filters");
+  const ordered = PHOTOS.slice().sort((a, b) => b.featured - a.featured);
+  let current = ordered;
+
+  const TABS = [{ id: "all", name: "Everything" }, ...COLLECTIONS];
+  filters.innerHTML = TABS.map(t =>
+    `<button class="filter" data-id="${t.id}" aria-pressed="${t.id === "all"}">${esc(t.name)}</button>`).join("");
+
+  function show(id) {
+    current = id === "all" ? ordered : ordered.filter(p => p.collection === id);
+    grid.innerHTML = current.map((p, i) =>
+      tileHTML(p, { sizes: "(max-width: 640px) 50vw, 25vw", eager: i < 6 })).join("");
+    document.querySelectorAll(".filter").forEach(b =>
+      b.setAttribute("aria-pressed", String(b.dataset.id === id)));
+  }
+  show("all");
+
+  filters.addEventListener("click", e => {
+    const b = e.target.closest(".filter");
+    if (b) show(b.dataset.id);
+  });
+
+  // On the shop, clicking a photograph opens the size picker rather than the
+  // lightbox, which is what people came here to do.
+  grid.addEventListener("click", e => {
+    const t = e.target.closest(".tile");
+    if (t) PrintPicker.open(t.dataset.slug);
+  });
+
+  // price table
+  const families = [...new Set(SITE.printProducts.map(p => p.family))];
+  document.getElementById("price-table").innerHTML = families.map(f => `
+    <div>
+      <p style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin:0 0 .5rem">${esc(f)}</p>
+      ${SITE.printProducts.filter(p => p.family === f).map(p => `
+        <div style="display:flex;justify-content:space-between;font-size:.86rem;padding:.22rem 0;color:var(--paper-dim)">
+          <span>${esc(p.size)}</span><span style="color:var(--paper)">${money(p.price)}</span>
+        </div>`).join("")}
+    </div>`).join("");
+
+  document.querySelectorAll("[data-ship]").forEach(el => el.textContent = money(SITE.shippingFlat));
+});
+</script>
+</body>
+</html>

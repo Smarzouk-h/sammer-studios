@@ -1,0 +1,252 @@
+/* ============================================================================
+   SAMMER STUDIOS, SITE CONFIG
+   ----------------------------------------------------------------------------
+   This is the only file you need to edit for day-to-day changes:
+   contact info, prices, session packages, and the two integrations
+   (a form backend and a scheduling calendar).
+
+   Everything below is plain text. Change the values between the quotes.
+   ========================================================================== */
+
+const SITE = {
+
+  /* --------------------------------------------------------------------
+     1. IDENTITY
+     ------------------------------------------------------------------ */
+  name: "Sammer Studios",
+  photographer: "Sammer Marzouk",
+  tagline: "Portraits, events, and prints. Chicago.",
+  baseCity: "Chicago, Illinois",
+
+  // Shown on the contact page and used as the fallback for form submissions.
+  email: "marzouksammer@gmail.com",
+
+  // Leave as "" to hide the phone line entirely.
+  phone: "",
+
+  // ---- Home page hero -------------------------------------------------
+  hero: {
+    eyebrow: "Chicago photography",
+    tag: "Portraits, engagements, and events across the city. Fine-art prints and hand calligraphy from the same studio.",
+    chips: ["Headshots", "Engagements", "Events", "Product", "Calligraphy"],
+  },
+
+  // Arabic wordmark shown in the footer and beside the calligraphy work.
+  // This is type, not a photograph of his hand-lettering.
+  arabicMark: "سامر مرزوق",
+
+  social: {
+    studioInstagram: "sammerstudios",   // @sammerstudios, the photography account
+    personalInstagram: "sammer_marz",   // @sammer_marz,  personal
+  },
+
+
+  /* --------------------------------------------------------------------
+     2. INTEGRATIONS: the two things to set up before launch
+     ------------------------------------------------------------------ */
+
+  // -- FORM BACKEND ----------------------------------------------------
+  // Booking requests and print orders POST here.
+  // Sign up free at https://formspree.io, create a form, paste the URL below.
+  // While this is "", the site falls back to opening the visitor's email app
+  // with everything pre-filled, which works, but is easier for people to
+  // abandon. Set this before you promote the site.
+  formEndpoint: "",
+
+  // -- SCHEDULING ------------------------------------------------------
+  // Paste an embeddable calendar URL to show a live booking calendar on the
+  // Book page. Works with:
+  //   • Google Calendar appointment schedules (free with your NU account)
+  //     -> Calendar > Create > Appointment schedule > Share > Embed
+  //   • Calendly       -> https://calendly.com/your-name/session
+  //   • Cal.com        -> https://cal.com/your-name/session
+  // While this is "", the Book page shows the request form only, which is a
+  // perfectly good way to start.
+  schedulingEmbedUrl: "",
+
+  // -- PAYMENT ---------------------------------------------------------
+  // Shown to the customer as soon as they place a print order, and repeated
+  // in the confirmation. Set a handle to "" to hide that option.
+  payment: {
+    venmo:  "Sammer-Marzouk",              // venmo.com/u/<handle>
+    paypal: "SammerMarzouk",               // paypal.me/<handle>
+    note:   "Send the total once I confirm the order is good to go. If anything is out of stock or needs a different crop I will tell you before you pay.",
+  },
+
+
+  /* --------------------------------------------------------------------
+     3. SESSION PACKAGES  (the Book page)
+     ------------------------------------------------------------------ */
+  packages: [
+    {
+      id: "eras",
+      name: "ERAS & Professional Headshots",
+      price: "$175",
+      duration: "45 minutes",
+      summary: "The residency application photo, done properly. I am an MD/PhD student myself, so I know the crop ERAS wants, the look programs expect, and how tight your deadline is.",
+      includes: [
+        "45-minute session, one or two backdrops",
+        "10 fully edited images, skin retouched lightly",
+        "Correctly cropped and sized for ERAS, LinkedIn and department pages",
+        "Files back within 72 hours, faster if you are up against a deadline",
+      ],
+    },
+    {
+      id: "engagement",
+      name: "Engagements & Couples",
+      price: "$350",
+      duration: "90 minutes",
+      summary: "Two locations, golden hour if you want it. If you would like Arabic calligraphy for the invitations afterwards, that is the same pair of hands.",
+      includes: [
+        "90-minute session, up to two locations",
+        "40 fully edited images",
+        "Outfit change welcome",
+        "Optional calligraphy for save-the-dates and invitations",
+      ],
+    },
+    {
+      id: "graduation",
+      name: "Graduations & Milestones",
+      price: "$325",
+      duration: "90 minutes",
+      summary: "Cap, gown, family, and the building you spent years inside. Built around Chicago campuses, but I will go where the meaning is.",
+      includes: [
+        "90-minute session, up to two locations",
+        "30 fully edited images",
+        "Family and group shots included",
+        "Online gallery, download in a week",
+      ],
+    },
+    {
+      id: "event",
+      name: "Events",
+      price: "$150 / hour",
+      duration: "2 hour minimum",
+      summary: "Openings, receptions, department parties, and recitals. I have covered a hospital opening and enough academic events to know how to stay out of the way of the people running them.",
+      includes: [
+        "Two-hour minimum",
+        "Roughly 60 edited images per hour",
+        "Comfortable in hospitals, labs and campus buildings",
+        "Preview set within 48 hours",
+      ],
+    },
+    {
+      id: "product",
+      name: "Product & Brand",
+      price: "From $500",
+      duration: "Half day",
+      summary: "Food, packaging, and the flat-lay-and-storefront work small businesses actually need. Shot in daylight wherever the product allows it.",
+      includes: [
+        "Half-day shoot, up to 4 hours",
+        "25 fully edited images",
+        "Commercial licence included",
+        "Styling help if you want it",
+      ],
+    },
+    {
+      id: "calligraphy",
+      name: "Calligraphy Commissions",
+      price: "From $60",
+      duration: "1 to 2 weeks",
+      summary: "Arabic script by hand, in ink on paper. Names, verses, invitations, table cards, and gifts. Quoted per piece once I know the words and the size.",
+      includes: [
+        "Arabic script, classical hands",
+        "Names and short phrases from $60",
+        "Invitation and signage sets quoted per job",
+        "Digitised version supplied for printing",
+      ],
+    },
+  ],
+
+  // Shown in small print under the packages.
+  packageNote: "Every price here is a starting point and I am open to negotiating on the specifics. Tell me the scope, the deadline, and the budget you are working with, and I will tell you honestly whether it works. Prices cover Chicago; further afield, travel is billed at cost and quoted before you commit. Students and campus groups, say so when you write, there is a rate for you.",
+
+  /* --------------------------------------------------------------------
+     3b. WHO I HAVE WORKED WITH  (the Experience strip)
+     ------------------------------------------------------------------
+     NOTE: your message said "Snacklava" but the product photographs are
+     branded Dar Baklava, so that is the name used here. If the client is
+     actually Snacklava, or both, change the line below.
+     ------------------------------------------------------------------ */
+  experience: [
+    { client: "Northwestern Medicine",  work: "Bronzeville location opening", kind: "Event" },
+    { client: "American Muslim Physician Association", work: "Annual banquet coverage", kind: "Event" },
+    { client: "Dar Baklava",            work: "Product and packaging photography", kind: "Product" },
+    { client: "Medical students",       work: "ERAS residency application headshots", kind: "Portrait" },
+    { client: "Private clients",        work: "Engagement and couples sessions", kind: "Portrait" },
+    { client: "Graduating classes",     work: "Campus graduation portraits", kind: "Portrait" },
+  ],
+
+  /* --------------------------------------------------------------------
+     4. PRINT SHOP
+     ------------------------------------------------------------------
+     HOW THIS WORKS
+     A visitor picks a photo and a size, fills in their address, and the
+     order arrives in your inbox. You then order that print from Google
+     Photos, ship it to them, and keep the difference.
+
+     `cost` is what you expect to pay Google Photos. It is NEVER shown on
+     the site. It is here so you can see your own margin at a glance, and
+     so the README can print a margin table. CHECK THESE AGAINST GOOGLE
+     PHOTOS BEFORE YOU LAUNCH; their prices move and these are estimates.
+
+     `price` is what the customer pays.
+     `ratio` is the print's aspect ratio, used to warn about cropping.
+     ------------------------------------------------------------------ */
+  printProducts: [
+    { id: "print-4x6",    family: "Print",  size: '4 × 6"',   ratio: "3:2", price: 12,  cost: 0.45 },
+    { id: "print-5x7",    family: "Print",  size: '5 × 7"',   ratio: "7:5", price: 18,  cost: 2.00 },
+    { id: "print-8x10",   family: "Print",  size: '8 × 10"',  ratio: "5:4", price: 28,  cost: 4.00 },
+    { id: "print-11x14",  family: "Print",  size: '11 × 14"', ratio: "14:11", price: 45, cost: 10.00 },
+    { id: "print-16x20",  family: "Print",  size: '16 × 20"', ratio: "5:4", price: 70,  cost: 20.00 },
+
+    { id: "canvas-11x14", family: "Canvas", size: '11 × 14"', ratio: "14:11", price: 95, cost: 30.00 },
+    { id: "canvas-16x20", family: "Canvas", size: '16 × 20"', ratio: "5:4", price: 135, cost: 45.00 },
+    { id: "canvas-20x30", family: "Canvas", size: '20 × 30"', ratio: "3:2", price: 195, cost: 70.00 },
+
+    { id: "framed-8x10",  family: "Framed", size: '8 × 10"',  ratio: "5:4", price: 85,  cost: 40.00 },
+    { id: "framed-11x14", family: "Framed", size: '11 × 14"', ratio: "14:11", price: 120, cost: 55.00 },
+    { id: "framed-16x20", family: "Framed", size: '16 × 20"', ratio: "5:4", price: 175, cost: 80.00 },
+  ],
+
+  familyNotes: {
+    Print:  "Lustre photo paper. Sent flat in a rigid mailer.",
+    Canvas: "Wrapped canvas on a wooden frame, ready to hang. No glass.",
+    Framed: "Matted print in a simple black or white frame, behind glass.",
+  },
+
+  shippingFlat: 9,          // flat shipping added to every print order
+  currency: "USD",
+  currencySymbol: "$",
+
+  // Shown at checkout. Be honest here: it sets expectations and prevents
+  // the awkward "where is my print" email three weeks later.
+  fulfilmentNote: "Prints are made to order and usually ship within 7–10 days. Nothing is charged when you submit. I will confirm the order and send an invoice first.",
+
+
+  // Different photograph of Sammer in each place, so the same face is not
+  // repeated down the site. Slugs come from the hidden "me" collection.
+  portraitsOfMe: {
+    aboutPage:   "me-with-camera",
+    homeTeaser:  "under-the-lanterns",
+    bookPage:    "me-at-the-bridge",
+    contact:     "records",
+  },
+
+  /* --------------------------------------------------------------------
+     5. ABOUT PAGE COPY
+     ------------------------------------------------------------------ */
+  about: {
+    lead: "I have been photographing for about five years. I am also an MD/PhD student at Northwestern, which turns out to matter more to this work than it sounds like it should.",
+    body: [
+      "It means I am comfortable in the places other photographers get nervous: hospitals, labs, lecture halls, a building on its opening day. I shot Northwestern Medicine's Bronzeville opening. I photograph ERAS headshots for people applying to residency, and I know what that photo has to do, because I am on the same road.",
+      "The rest of the work is engagements, graduations, events, and product photography for small businesses. I shot Dar Baklava's packaging and pastries. In between I walk the city at night, which is where most of the prints on this site come from: the Chicago River at blue hour, New York at two in the morning, a summer in Jordan, and more Smoky Mountain creeks than strictly necessary.",
+      "I also write Arabic calligraphy, by hand in ink. It started as its own thing and has quietly become part of the job, mostly for invitations and gifts. If you are booking an engagement session and want the save-the-dates written by hand, that is the same pair of hands.",
+      "Everything on this site is available as a print. I make them to order.",
+    ],
+    gear: ["Sony A7 IV", "Sony FE 28-70mm f/3.5-5.6 OSS", "Canon EOS Rebel XTi (retired, sentimental)", "Ink, nib, and a light box"],
+  },
+};
+
+/* Nothing below this line needs editing. */
+if (typeof module !== "undefined") { module.exports = SITE; }

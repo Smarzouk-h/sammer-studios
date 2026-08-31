@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sammer Studios | Photographer in Chicago</title>
+<meta name="description" content="Sammer Marzouk is a photographer in Chicago. ERAS and professional headshots, engagements, events, and product photography, plus fine-art prints and hand calligraphy.">
+<link rel="canonical" href="https://sammerstudios.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sammer Studios | Photographer in Chicago">
+<meta property="og:description" content="Headshots, engagements, events, and product photography in Chicago. Fine-art prints and hand calligraphy from the same studio.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preload" as="image" href="photos/hero/hero-1800.webp" type="image/webp" imagesrcset="photos/hero/hero-1200.webp 1200w, photos/hero/hero-1800.webp 1800w, photos/hero/hero-2400.webp 2400w" imagesizes="100vw">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head" id="site-head"></header>
+
+<main id="main">
+
+  <!-- ------------------------------------------------------------- hero -->
+  <section class="hero">
+    <div class="hero-media">
+      <picture>
+        <source type="image/webp" sizes="100vw"
+                srcset="photos/hero/hero-1200.webp 1200w,
+                        photos/hero/hero-1800.webp 1800w,
+                        photos/hero/hero-2400.webp 2400w">
+        <img src="photos/hero/hero-1800.jpg" sizes="100vw"
+             srcset="photos/hero/hero-1200.jpg 1200w,
+                     photos/hero/hero-1800.jpg 1800w,
+                     photos/hero/hero-2400.jpg 2400w"
+             alt="The Chicago skyline at sunset from the lakefront, with the sun flaring low between the buildings"
+             width="2400" height="1600" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
+      <p class="eyebrow" id="hero-eyebrow"></p>
+      <h1>Sammer<br><em>Studios</em></h1>
+      <p class="hero-tag" id="hero-tag"></p>
+      <div class="hero-actions">
+        <a class="btn btn--solid" href="book.html">Book a session</a>
+        <a class="btn btn--ghost" href="portfolio.html">See the work</a>
+      </div>
+      <div class="hero-meta" id="hero-chips"></div>
+    </div>
+    <div class="scroll-cue">Scroll</div>
+  </section>
+
+  <!-- ------------------------------------------------------- experience -->
+  <section class="section section--tight wrap">
+    <p class="eyebrow" style="text-align:center">Trusted with</p>
+    <div class="experience" id="experience"></div>
+  </section>
+
+  <!-- --------------------------------------------------------- featured -->
+  <section class="section section--line wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2>A few I keep<br>coming back to</h2>
+      </div>
+      <a class="link-more" href="portfolio.html">Full portfolio →</a>
+    </div>
+    <div class="mosaic reveal" id="featured-mosaic"></div>
+  </section>
+
+  <!-- ------------------------------------------------------ collections -->
+  <section class="section section--line wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Collections</p>
+        <h2>What I shoot</h2>
+        <p>Commissioned work first, then the personal pictures that keep the eye sharp. Every frame here is available as a print.</p>
+      </div>
+      <a class="link-more" href="portfolio.html">Browse everything →</a>
+    </div>
+    <div id="collection-groups"></div>
+  </section>
+
+  <!-- ----------------------------------------------------------- motion -->
+  <section class="section section--line wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">In motion</p>
+        <h2>Some of it moves</h2>
+        <p>Short clips from the same walks and the same desk. Sound off, no autoplay ads, nothing asked of you.</p>
+      </div>
+    </div>
+    <div class="filmstrip reveal" id="filmstrip"></div>
+  </section>
+
+  <!-- ------------------------------------------------------- instagram -->
+  <section class="section section--line wrap" id="ig-section" hidden>
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Instagram</p>
+        <h2>Latest posts</h2>
+        <p>Straight from <a href="#" id="ig-handle-link" target="_blank" rel="noopener" style="color:var(--gold-soft)"></a>. These are Instagram's own copies, so they are small: everything in the portfolio above is the full-resolution file.</p>
+      </div>
+      <a class="link-more" id="ig-follow" href="#" target="_blank" rel="noopener">Follow →</a>
+    </div>
+    <div class="ig-strip reveal" id="ig-strip"></div>
+  </section>
+
+  <!-- --------------------------------------------------------- services -->
+  <section class="section section--line wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Commissions</p>
+        <h2>Hire me for<br>an afternoon</h2>
+        <p>Six ways people usually work with me. If what you need is not on the list, write anyway. Prices are a starting point, not a wall.</p>
+      </div>
+      <a class="link-more" href="book.html">Rates &amp; booking →</a>
+    </div>
+    <div class="grid-3 reveal" id="package-cards"></div>
+  </section>
+
+  <!-- ----------------------------------------------------------- prints -->
+  <section class="section section--line wrap">
+    <div class="grid-2">
+      <div class="reveal">
+        <p class="eyebrow">Prints</p>
+        <h2 style="font-size:clamp(2rem,4.6vw,3.6rem)">Put one on<br>your wall</h2>
+        <p class="lede" style="margin:1.6rem 0 1.4rem;color:var(--paper-dim)">
+          Every photograph on this site can be printed: lustre paper, wrapped canvas, or matted and framed.
+          I make them to order, one at a time.
+        </p>
+        <div class="pill-row" style="margin-bottom:2rem">
+          <span class="pill">4×6 from $12</span>
+          <span class="pill">Canvas from $95</span>
+          <span class="pill">Framed from $85</span>
+        </div>
+        <a class="btn btn--gold" href="prints.html">Browse the print shop</a>
+      </div>
+      <div class="reveal" id="print-teaser" style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem"></div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------ about -->
+  <section class="section section--line wrap">
+    <div class="grid-2">
+      <div class="reveal" id="about-teaser-img"></div>
+      <div class="reveal">
+        <p class="eyebrow">About</p>
+        <h2 style="font-size:clamp(2rem,4.6vw,3.6rem)">A photographer<br>inside medicine</h2>
+        <div class="prose" style="margin-top:1.6rem">
+          <p class="lede" style="color:var(--paper)">Five years behind a camera, and an MD/PhD student at Northwestern.</p>
+          <p>That combination is the reason I am comfortable in the rooms other photographers find awkward: hospitals, labs, lecture halls, a building on its opening day. It is also why I know exactly what an ERAS headshot has to do, because I am on the same road as the people sitting for them.</p>
+          <p>The rest is engagements, graduations, events, and product work for small businesses. Then there is the Arabic calligraphy, in ink, which started separately and quietly became part of the job.</p>
+        </div>
+        <a class="link-more" href="about.html" style="margin-top:1.8rem">More about me →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------- cta -->
+  <section class="section section--line">
+    <div class="wrap" style="text-align:center">
+      <div class="reveal">
+        <p class="eyebrow">Let's make something</p>
+        <h2 style="font-size:clamp(2.2rem,6vw,4.8rem);margin-bottom:1.5rem">Got a date in mind?</h2>
+        <p style="color:var(--paper-dim);max-width:48ch;margin:0 auto 2.4rem">
+          Tell me the scope, the deadline, and the budget you are working with. I will come back with a time, a price, and an honest answer about whether I am the right person for it.
+        </p>
+        <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn--solid" href="book.html">Book a session</a>
+          <a class="btn btn--ghost" href="mailto:" data-mail>Send an email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot" id="site-foot"></footer>
+
+<script src="assets/js/site-config.js"></script>
+<script src="data/photos.js"></script>
+<script src="data/instagram.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/gallery.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* --- hero copy, all of it editable in site-config.js --- */
+  document.getElementById("hero-eyebrow").textContent = SITE.hero.eyebrow;
+  document.getElementById("hero-tag").textContent = SITE.hero.tag;
+  document.getElementById("hero-chips").innerHTML =
+    SITE.hero.chips.map(c => `<span>${esc(c)}</span>`).join("");
+
+  /* --- who I have worked with --- */
+  document.getElementById("experience").innerHTML = SITE.experience.map(e => `
+    <div class="exp">
+      <b>${esc(e.client)}</b>
+      <span>${esc(e.work)}</span>
+    </div>`).join("");
+
+  /* --- featured mosaic: chosen by hand so the shapes sit well together --- */
+  // Commissioned work leads: a headshot, an event, a product frame, the
+  // calligraphy. The personal pictures fill out the shapes around them.
+  const MOSAIC = [
+    ["ampa-banquet",       "m-a"],
+    ["headshot-window",    "m-b"],
+    ["baklava-and-coffee", "m-c"],
+    ["the-letter",         "m-d"],
+    ["headshot-clean",     "m-e"],
+    ["sabrett",            "m-f"],
+    ["a-thousand-boats",   "m-g"],
+  ].filter(([slug]) => bySlug[slug]);
+
+  const mosaicList = MOSAIC.map(([slug]) => bySlug[slug]);
+  const host = document.getElementById("featured-mosaic");
+  host.innerHTML = MOSAIC.map(([slug, cls], i) =>
+    tileHTML(bySlug[slug], { cls, sizes: "(max-width: 860px) 50vw, 33vw", eager: i < 3 })).join("");
+  host.addEventListener("click", e => {
+    const t = e.target.closest(".tile");
+    if (t) Lightbox.open(mosaicList, mosaicList.findIndex(p => p.slug === t.dataset.slug));
+  });
+
+  /* --- collections, grouped and given room to breathe --- */
+  const groups = [];
+  COLLECTIONS.forEach(c => {
+    let g = groups.find(x => x.name === (c.group || "Work"));
+    if (!g) groups.push(g = { name: c.group || "Work", items: [] });
+    g.items.push(c);
+  });
+
+  document.getElementById("collection-groups").innerHTML = groups.map(g => `
+    <div class="coll-group reveal">
+      <h3 class="coll-group-title">${esc(g.name)}</h3>
+      <div class="coll-grid">
+        ${g.items.map(c => {
+          const shots = PHOTOS.filter(p => p.collection === c.id);
+          const cover = shots.slice().sort((a, b) => b.featured - a.featured)[0];
+          if (!cover) return "";
+          return `
+            <a class="coll-card" href="portfolio.html#${c.id}">
+              <img src="photos/thumb/${cover.slug}.jpg"
+                   srcset="photos/thumb/${cover.slug}.jpg 1000w, photos/full/${cover.slug}.jpg ${cover.w}w"
+                   sizes="(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 30vw"
+                   alt="${esc(c.name)}: ${esc(cover.title)}" loading="lazy">
+              <span class="coll-scrim"></span>
+              <span class="coll-text">
+                <b>${esc(c.name)}</b>
+                <em>${esc(c.blurb)}</em>
+              </span>
+            </a>`;
+        }).join("")}
+      </div>
+    </div>`).join("");
+
+  /* --- silent ambient loops --- */
+  const CLIPS = [
+    { file: "river-bluehour",   alt: "The Chicago River at blue hour, seen from above" },
+    { file: "chicago-festival", alt: "A summer street festival crowd with the Chicago skyline behind" },
+    { file: "calligraphy",      alt: "A hand writing Arabic calligraphy in ink on paper" },
+    { file: "clinic-corridor",  alt: "Two people talking in a hospital corridor" },
+    { file: "petra-siq",        alt: "The Treasury at Petra seen through the narrow walls of the Siq" },
+    { file: "lake-dusk",        alt: "Lake Michigan at dusk with the Navy Pier wheel on the horizon" },
+    { file: "bakery",           alt: "A baker turning flatbread out of the oven in Jordan" },
+    { file: "lakefront-picnic", alt: "A picnic laid out on the lakefront grass with the skyline behind" },
+    { file: "water-window",     alt: "Water moving behind glass" },
+  ];
+  document.getElementById("filmstrip").innerHTML = CLIPS.map(c => `
+    <video class="clip" muted loop playsinline preload="none"
+           poster="video/${c.file}.jpg" aria-label="${esc(c.alt)}">
+      <source src="video/${c.file}.mp4" type="video/mp4">
+    </video>`).join("");
+
+  // Only play what is on screen, and never on a metered or reduced-motion setup.
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (!reduce && !saveData && "IntersectionObserver" in window) {
+    const vio = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        const v = en.target;
+        if (en.isIntersecting) { v.preload = "auto"; v.play().catch(() => {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.25 });
+    document.querySelectorAll(".clip").forEach(v => vio.observe(v));
+  }
+
+  /* --- latest on Instagram, shown only when the feed has been synced --- */
+  const igPosts = window.INSTAGRAM_POSTS || [];
+  const igUrl = `https://instagram.com/${SITE.social.studioInstagram}`;
+  document.getElementById("ig-handle-link").href = igUrl;
+  document.getElementById("ig-handle-link").textContent = "@" + SITE.social.studioInstagram;
+  document.getElementById("ig-follow").href = igUrl;
+  if (igPosts.length) {
+    document.getElementById("ig-section").hidden = false;
+    document.getElementById("ig-strip").innerHTML = igPosts.slice(0, 12).map(post => `
+      <a class="ig-tile" href="${esc(post.link || igUrl)}" target="_blank" rel="noopener"
+         title="${esc(post.caption || "View on Instagram")}">
+        <img src="${esc(post.img)}" alt="${esc(post.caption || "Instagram post")}" loading="lazy">
+        ${post.video ? '<span class="ig-play" aria-hidden="true">▶</span>' : ""}
+      </a>`).join("");
+  }
+
+  /* --- package cards --- */
+  document.getElementById("package-cards").innerHTML = SITE.packages.map(p => `
+    <article class="card pkg">
+      <h3>${esc(p.name)}</h3>
+      <div class="price">${esc(p.price)}</div>
+      <div class="dur">${esc(p.duration)}</div>
+      <p class="sum">${esc(p.summary)}</p>
+      <a class="btn btn--ghost btn--sm" href="book.html#${esc(p.id)}">Enquire</a>
+    </article>`).join("");
+
+  /* --- print teaser + about image --- */
+  const teaser = ["one-red-light", "the-dome", "chinatown-neon", "winter-branches"]
+    .filter(s => bySlug[s]);
+  document.getElementById("print-teaser").innerHTML = teaser.map(s => `
+    <a href="prints.html#order-${s}" style="display:block;overflow:hidden">
+      <img src="photos/thumb/${s}.jpg" alt="${esc(bySlug[s].title)}"
+           style="width:100%;aspect-ratio:1;object-fit:cover" loading="lazy">
+    </a>`).join("");
+
+  const portrait = bySlug[SITE.portraitsOfMe.homeTeaser] || bySlug["records"];
+  document.getElementById("about-teaser-img").innerHTML = `
+    <img src="photos/full/${portrait.slug}.jpg" alt="Sammer Marzouk"
+         style="width:100%;aspect-ratio:4/5;object-fit:cover" loading="lazy">`;
+
+  document.querySelectorAll("[data-mail]").forEach(a => {
+    a.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Photography enquiry")}`;
+  });
+
+  openFromHash(PHOTOS);
+});
+</script>
+</body>
+</html>

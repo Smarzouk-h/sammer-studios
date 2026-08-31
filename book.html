@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a session | Sammer Studios</title>
+<meta name="description" content="Book headshots, engagement, graduation, event, product photography, or calligraphy with Sammer Marzouk in Chicago. Rates, what is included, and how to get a date on the calendar.">
+<link rel="canonical" href="https://sammerstudios.com/book.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book a session | Sammer Studios">
+<meta property="og:description" content="Headshots, engagements, events, product photography, and calligraphy in Chicago.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="page-solid">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head" id="site-head"></header>
+
+<main id="main">
+
+  <section class="page-head wrap">
+    <p class="eyebrow">Booking</p>
+    <h1>Let's find<br>a date</h1>
+    <p class="lede" style="color:var(--paper-dim)">
+      Pick the kind of session you have in mind, tell me roughly when, and I will come
+      back within a day or two with a time and a price. Everything here is negotiable.
+    </p>
+  </section>
+
+  <!-- packages -->
+  <section class="section section--tight wrap">
+    <div class="grid-3" id="packages"></div>
+    <aside class="note-band reveal">
+      <p class="eyebrow eyebrow--gold" style="margin-bottom:.7rem">On pricing</p>
+      <p id="package-note"></p>
+    </aside>
+  </section>
+
+  <!-- calendar (only rendered when a scheduling link is configured) -->
+  <section class="section section--line wrap" id="calendar-section" hidden>
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Calendar</p>
+        <h2>Pick a time</h2>
+        <p>Grab a slot directly. If nothing here works, use the form below instead.</p>
+      </div>
+    </div>
+    <div class="card" style="padding:.5rem">
+      <iframe id="scheduler" title="Booking calendar" style="width:100%;height:760px;border:0;border-radius:3px" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- request form -->
+  <section class="section section--line wrap" id="request">
+    <div class="grid-2">
+
+      <div>
+        <p class="eyebrow">Enquiry</p>
+        <h2 style="font-size:clamp(1.9rem,4.4vw,3.2rem)">Tell me<br>what you need</h2>
+        <div class="prose" style="margin-top:1.6rem">
+          <p>The more you put here, the more useful my reply will be. If you are not sure what you need yet, say that. Half of these conversations start with "I don't really know how this works."</p>
+        </div>
+        <div class="card" style="margin-top:2rem">
+          <h3 style="font-size:1.1rem;margin-bottom:.9rem">What happens next</h3>
+          <ol style="margin:0;padding-left:1.1rem;color:var(--paper-dim);font-size:.9rem;display:grid;gap:.55rem">
+            <li>I reply within a day or two with availability and a firm quote.</li>
+            <li>We agree a time and a place. No deposit for small sessions.</li>
+            <li>We shoot. I edit. Your gallery goes up within a week.</li>
+          </ol>
+        </div>
+        <p style="margin-top:1.6rem;font-size:.9rem;color:var(--paper-dim)">
+          Prefer email? <a href="mailto:" data-mail style="color:var(--gold-soft)"><span data-site="email"></span></a>
+        </p>
+        <div id="book-portrait" style="margin-top:1.8rem"></div>
+      </div>
+
+      <div class="card">
+        <form id="booking-form" novalidate>
+          <div class="field">
+            <label for="bk-type">Kind of session <span class="req">*</span></label>
+            <select id="bk-type" name="type" required></select>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="bk-name">Name <span class="req">*</span></label>
+              <input id="bk-name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="bk-email">Email <span class="req">*</span></label>
+              <input id="bk-email" name="email" type="email" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="bk-date">Preferred date</label>
+              <input id="bk-date" name="date" type="date">
+            </div>
+            <div class="field">
+              <label for="bk-time">Time of day</label>
+              <select id="bk-time" name="time">
+                <option value="">No preference</option>
+                <option>Morning</option>
+                <option>Midday</option>
+                <option>Golden hour</option>
+                <option>After dark</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="bk-where">Where</label>
+            <input id="bk-where" name="location" placeholder="Campus, a neighbourhood, your office, or ask me to suggest one">
+          </div>
+
+          <div class="field">
+            <label for="bk-people">How many people</label>
+            <input id="bk-people" name="people" placeholder="Just me / a family of five / roughly 60 guests">
+          </div>
+
+          <div class="field">
+            <label for="bk-notes">What are we making? <span class="req">*</span></label>
+            <textarea id="bk-notes" name="notes" required
+              placeholder="A sentence or two is plenty. What the photos are for, and anything that matters to you."></textarea>
+          </div>
+
+          <button class="btn btn--gold btn--block" type="submit">Send request</button>
+          <p class="form-note">No deposit, no obligation. I will write back before anything is booked.</p>
+          <div class="form-status" data-bk-status role="status"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section class="section section--line wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Questions</p>
+        <h2>Asked often</h2>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="prose">
+        <p><b style="color:var(--paper)">How far will you travel?</b><br>Chicago is covered by the listed price. Beyond the city I charge travel at cost and tell you the number before you commit.</p>
+        <p><b style="color:var(--paper)">When do I get the photos?</b><br>A preview set within 48 hours, the full edited gallery within a week. Faster if you have a deadline, say so.</p>
+        <p><b style="color:var(--paper)">What if it rains?</b><br>We reschedule, no charge. Overcast light is usually better anyway; genuine downpours are not.</p>
+      </div>
+      <div class="prose">
+        <p><b style="color:var(--paper)">Can I print the photos myself?</b><br>Yes. Personal-use print release comes with every session. If you would rather I handled printing, the <a href="prints.html" style="color:var(--gold-soft)">print shop</a> does that too.</p>
+        <p><b style="color:var(--paper)">Do you do student rates?</b><br>Yes. Mention it when you write. I am a student too.</p>
+        <p><b style="color:var(--paper)">I hate being photographed.</b><br>Most people say this. It is mostly a matter of not being rushed, and of me not making you stare down a lens for an hour.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot" id="site-foot"></footer>
+
+<script src="assets/js/site-config.js"></script>
+<script src="data/photos.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/gallery.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* --- packages --- */
+  document.getElementById("packages").innerHTML = SITE.packages.map(p => `
+    <article class="card pkg" id="${esc(p.id)}">
+      <h3>${esc(p.name)}</h3>
+      <div class="price">${esc(p.price)}</div>
+      <div class="dur">${esc(p.duration)}</div>
+      <p class="sum">${esc(p.summary)}</p>
+      <ul>${p.includes.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+      <button class="btn btn--ghost btn--sm" data-pick="${esc(p.name)}">Choose this</button>
+    </article>`).join("");
+
+  document.getElementById("package-note").textContent = SITE.packageNote;
+
+  const typeSel = document.getElementById("bk-type");
+  typeSel.innerHTML =
+    `<option value="">Choose one…</option>` +
+    SITE.packages.map(p => `<option>${esc(p.name)}</option>`).join("") +
+    `<option>Something else</option>`;
+
+  document.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", () => {
+    typeSel.value = b.dataset.pick;
+    document.getElementById("request").scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => document.getElementById("bk-name").focus(), 450);
+  }));
+
+  // Deep link: book.html#portrait preselects that package.
+  const h = location.hash.replace("#", "");
+  const match = SITE.packages.find(p => p.id === h);
+  if (match) typeSel.value = match.name;
+
+  /* --- scheduling embed, only if one is configured --- */
+  if (SITE.schedulingEmbedUrl) {
+    const sec = document.getElementById("calendar-section");
+    document.getElementById("scheduler").src = SITE.schedulingEmbedUrl;
+    sec.hidden = false;
+  }
+
+  /* --- no dates in the past --- */
+  const dateEl = document.getElementById("bk-date");
+  const today = new Date();
+  dateEl.min = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+    .toISOString().slice(0, 10);
+
+  /* --- submit --- */
+  const form = document.getElementById("booking-form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const status = form.querySelector("[data-bk-status]");
+    const btn = form.querySelector('button[type="submit"]');
+
+    if (!form.checkValidity()) {
+      showStatus(status, "err", "A couple of fields still need filling in.");
+      form.reportValidity();
+      return;
+    }
+
+    const fields = {
+      "Session type": form.type.value,
+      "Name": form.name.value.trim(),
+      "Email": form.email.value.trim(),
+      "Preferred date": form.date.value || "flexible",
+      "Time of day": form.time.value || "no preference",
+      "Location": form.location.value.trim(),
+      "Headcount": form.people.value.trim(),
+      "Details": form.notes.value.trim(),
+    };
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    try {
+      const how = await sendForm(
+        `Booking request: ${fields["Session type"]} for ${fields.Name}`, fields);
+      showStatus(status, "ok", how === "sent"
+        ? "Got it. I will write back within a day or two."
+        : "Your email app should be open with the request in it. Send that and you are done.");
+      if (how === "sent") { form.reset(); }
+      btn.textContent = "Sent";
+    } catch (err) {
+      showStatus(status, "err",
+        `That didn't send. Email me at ${SITE.email} and I will pick it up from there.`);
+      btn.disabled = false;
+      btn.textContent = "Send request";
+    }
+  });
+
+  document.querySelectorAll("[data-mail]").forEach(a => {
+    a.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Photography enquiry")}`;
+  });
+
+  const me = (typeof bySlug !== "undefined") ? bySlug[SITE.portraitsOfMe.bookPage] : null;
+  const bp = document.getElementById("book-portrait");
+  if (bp && me) {
+    bp.innerHTML = `
+      <img src="photos/full/${me.slug}.jpg" alt="Sammer Marzouk"
+           style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px" loading="lazy">
+      <p style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dimmer);margin-top:.7rem">
+        Sammer Marzouk
+      </p>`;
+  }
+});
+</script>
+</body>
+</html>
