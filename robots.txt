@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sammerstudios.com/sitemap.xml
+Sitemap: https://smarzouk-h.github.io/sammer-studios/sitemap.xml

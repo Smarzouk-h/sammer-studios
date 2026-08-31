@@ -299,13 +299,35 @@ and to attach a real domain. To update the site you drag the folder again.
 
 ### Your own domain
 
-`sammerstudios.com` and similar run about $12 a year at Namecheap, Cloudflare,
-or Porkbun. Both hosts above walk you through pointing it at the site.
+**sammerstudios.com is available.** I checked; whois returns no match. So is
+sammermarzouk.com. I cannot buy it for you, since that needs an account and a
+card, but the rest is one command.
 
-Once you have the real domain, search the five HTML files for
-`https://sammerstudios.com` and replace it. It appears in the `canonical` and
-Open Graph tags, which control the preview card when someone shares a link.
-Swap `assets/img/og.jpg` too if you want a different preview image.
+1. Buy it. Namecheap, Cloudflare, or Porkbun, roughly $12 a year. Cloudflare
+   sells at cost and does not do the cheap-first-year-then-triple thing.
+2. At the registrar, add these DNS records:
+
+       Type   Name   Value
+       A      @      185.199.108.153
+       A      @      185.199.109.153
+       A      @      185.199.110.153
+       A      @      185.199.111.153
+       CNAME  www    smarzouk-h.github.io
+
+3. Then here:
+
+       ./tools/set-domain.sh https://sammerstudios.com
+       ./tools/publish.sh
+
+   That rewrites every canonical and og:url tag, the sitemap and robots.txt,
+   and writes the CNAME file GitHub Pages needs.
+4. In the repository, Settings > Pages, tick **Enforce HTTPS** once the
+   certificate has been issued. That can take an hour.
+
+DNS takes anywhere from a few minutes to a day to propagate. The github.io
+address keeps working the whole time.
+
+Send me the word once you have bought it and I will run steps 3 and 4.
 
 ### Previewing locally
 
