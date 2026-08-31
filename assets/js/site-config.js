@@ -46,22 +46,41 @@ const SITE = {
      ------------------------------------------------------------------ */
 
   // -- FORM BACKEND ----------------------------------------------------
-  // Booking requests and print orders POST here.
-  // Sign up free at https://formspree.io, create a form, paste the URL below.
-  // While this is "", the site falls back to opening the visitor's email app
-  // with everything pre-filled, which works, but is easier for people to
-  // abandon. Set this before you promote the site.
-  formEndpoint: "",
+  // Booking requests and print orders POST here and arrive as email.
+  //
+  // This is set to FormSubmit, which needs no account: the first message sent
+  // through it triggers a one-time confirmation email to the address below.
+  // Click the link in that email once and every submission from then on lands
+  // in your inbox. Nothing else to do.
+  //
+  // Two things worth knowing:
+  //   1. After you confirm, FormSubmit shows you a random token. Swapping the
+  //      address below for that token stops your email address sitting in a
+  //      file that every visitor downloads. Worth doing, not urgent: your
+  //      address is already on the contact page.
+  //   2. If you would rather use Formspree, sign up there, create a form, and
+  //      paste its endpoint here instead. The site does not care which.
+  formEndpoint: "https://formsubmit.co/ajax/marzouksammer@gmail.com",
 
   // -- SCHEDULING ------------------------------------------------------
-  // Paste an embeddable calendar URL to show a live booking calendar on the
-  // Book page. Works with:
-  //   • Google Calendar appointment schedules (free with your NU account)
-  //     -> Calendar > Create > Appointment schedule > Share > Embed
-  //   • Calendly       -> https://calendly.com/your-name/session
-  //   • Cal.com        -> https://cal.com/your-name/session
-  // While this is "", the Book page shows the request form only, which is a
-  // perfectly good way to start.
+  // Paste a booking-page URL here and a live "Pick a time" calendar appears on
+  // the Book page. Leave it "" and visitors use the request form instead,
+  // which works fine.
+  //
+  // Google Calendar, on marzouksammer@gmail.com, free:
+  //   1. calendar.google.com, signed in as marzouksammer@gmail.com
+  //   2. Create > Appointment schedule
+  //   3. Name it (say "Photography session"), set the length and the hours
+  //      you are willing to shoot, and save
+  //   4. Open it again and press "Share" or "Open booking page"
+  //   5. Copy that booking page link and paste it below
+  //
+  // The link looks like:
+  //   https://calendar.google.com/calendar/appointments/schedules/AcZssZ...
+  //
+  // Calendly and Cal.com links work here too. Whatever you paste is loaded in
+  // an iframe, so it must be a page that allows embedding: a Google booking
+  // page does, a plain calendar.google.com URL does not.
   schedulingEmbedUrl: "",
 
   // -- PAYMENT ---------------------------------------------------------

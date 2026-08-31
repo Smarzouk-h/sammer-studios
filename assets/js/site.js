@@ -218,25 +218,45 @@ async function sendForm(subject, fields) {
     .map(([k, v]) => `${k}:\n${v}\n`)
     .join("\n");
 
-  if (SITE.formEndpoint) {
+  const openMail = () => {
+    const href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Very long bodies get truncated by mail clients; trim the detail.
+    location.href = href.length > 1900
+      ? `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body.slice(0, 1500) + "\n\n[continued. Please send and I will follow up]")}`
+      : href;
+    return "mailto";
+  };
+
+  if (!SITE.formEndpoint) return openMail();
+
+  // If the endpoint is unreachable, unactivated, or simply having a bad day,
+  // fall back to the visitor's mail app rather than losing the enquiry.
+  try {
+    const payload = { _subject: subject, ...fields };
+    // FormSubmit understands these; other backends ignore unknown keys.
+    if (SITE.formEndpoint.includes("formsubmit")) {
+      payload._template = "table";
+      payload._captcha = "false";
+    }
     const res = await fetch(SITE.formEndpoint, {
       method: "POST",
       headers: { "Accept": "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ _subject: subject, ...fields }),
+      body: JSON.stringify(payload),
     });
     if (!res.ok) throw new Error("Form endpoint returned " + res.status);
-    return "sent";
-  }
 
-  const href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  if (href.length > 1900) {
-    // Very long bodies get truncated by mail clients; trim the detail.
-    location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body.slice(0, 1500) + "\n\n[continued. Please send and I will follow up]")}`;
-  } else {
-    location.href = href;
+    // FormSubmit answers 200 with {success:"false"} when the address has not
+    // been confirmed yet, so a bare status check is not enough.
+    let data = null;
+    try { data = await res.json(); } catch { /* some backends return no body */ }
+    if (data && String(data.success) === "false") throw new Error(data.message || "rejected");
+
+    return "sent";
+  } catch (err) {
+    console.warn("Form endpoint failed, falling back to email:", err.message);
+    return openMail();
   }
-  return "mailto";
 }
 
 function showStatus(el, kind, msg) {
