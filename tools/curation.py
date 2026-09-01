@@ -108,6 +108,7 @@ CURATION = [
     # ---------------- EVENTS ----------------
     (285, "ampa-banquet",          "The Whole Room",               "events",   "Chicago, IL", 3),
     (286, "nm-dermatology",        "Dermatology Outreach",         "events",   "Northwestern Medicine", 2),
+    (300, "panel-discussion",      "The Panel",                    "events",   "Chicago, IL", 2),
 
     # ---------------- PRODUCT & BRAND ----------------
     (279, "baklava-and-coffee",    "Boxed and Poured",             "product",  "Chicago, IL", 3),
@@ -123,10 +124,14 @@ CURATION = [
     # ---------------- PORTRAITS ----------------
     (283, "headshot-clean",        "Clean Backdrop",               "portraits","Chicago, IL", 3),
     (284, "headshot-window",       "Window Light, Suit",           "portraits","Chicago, IL", 3),
+    (295, "headshot-navy",         "Navy, Clean Light",            "portraits","Chicago, IL", 3),
+    (298, "headshot-dark-suit",    "Dark Suit, Soft Key",          "portraits","Chicago, IL", 2),
+    (296, "headshot-black-blazer", "Black Blazer",                 "portraits","Chicago, IL", 2),
+    (297, "headshot-blue-shirt",   "Blue Shirt, Open Collar",      "portraits","Chicago, IL", 1),
+    (299, "portrait-outdoors",     "Outside, Between Sessions",    "portraits","Chicago, IL", 1),
     (237, "records",               "Records",                      "me",       "Evanston, IL", 3),
     (258, "under-the-lanterns",    "Under the Lanterns",           "me",       "Amman, Jordan", 2),
     (263, "looking-out-at-petra",  "Looking Out",                  "me",       "Petra, Jordan", 2),
-    (243, "three-on-the-corner",   "Three on the Corner",          "portraits","Chicago, IL", 0),
     (178, "the-tool",              "The Tool",                     "chicago",  "Chicago, IL", 0),
 
     # ---------------- PHOTOGRAPHS OF SAMMER ----------------

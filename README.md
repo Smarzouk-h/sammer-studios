@@ -223,6 +223,30 @@ never appear in the portfolio or the print shop.
 If any of those are actually yours, move them back to a real collection in
 `tools/curation.py` and rebuild.
 
+### Retouching portraits
+
+`tools/retouch-portraits.py` cleans up a studio headshot:
+
+```bash
+python3 tools/retouch-portraits.py in.jpg out.jpg           # studio backdrop
+python3 tools/retouch-portraits.py in.jpg out.jpg outdoor   # no backdrop
+```
+
+It neutralises the colour cast, lifts the backdrop to an even near-white so
+the lighting shadow behind the subject disappears, and adds a gentle S-curve.
+The backdrop lift runs twice: a deep shadow only registers weakly on the first
+pass and reads as background on the second. Measured on your headshots, the
+backdrop went from a 12 to 50 point spread down to 1 to 6, sitting at 246 to
+248 instead of 190 to 240.
+
+It does not touch skin, on purpose. Automated skin work is what makes a
+headshot look processed, and the backdrop was the actual problem. Blemishes,
+stray hairs and real dodge and burn still want a person in Lightroom.
+
+Edited files live in `edited/` inside your source folder and are referenced
+from `tools/_source_index.txt`, so a rebuild always uses the retouched version
+rather than the original.
+
 ### Adding or removing photographs
 
 Photo captions and groupings live in `tools/curation.py`. Each line is:
