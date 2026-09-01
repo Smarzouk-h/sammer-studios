@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="preload" as="image" href="photos/hero/hero-1800.webp" type="image/webp" imagesrcset="photos/hero/hero-1200.webp 1200w, photos/hero/hero-1800.webp 1800w, photos/hero/hero-2400.webp 2400w" imagesizes="100vw">
+<link rel="preload" as="image" href="photos/hero/hero-1800.webp?v=ed88adb0" type="image/webp" imagesrcset="photos/hero/hero-1200.webp?v=ed88adb0 1200w, photos/hero/hero-1800.webp?v=ed88adb0 1800w, photos/hero/hero-2400.webp?v=ed88adb0 2400w" imagesizes="100vw">
 </head>
 <body>
 
@@ -35,13 +35,13 @@
     <div class="hero-media">
       <picture>
         <source type="image/webp" sizes="100vw"
-                srcset="photos/hero/hero-1200.webp 1200w,
-                        photos/hero/hero-1800.webp 1800w,
-                        photos/hero/hero-2400.webp 2400w">
-        <img src="photos/hero/hero-1800.jpg" sizes="100vw"
-             srcset="photos/hero/hero-1200.jpg 1200w,
-                     photos/hero/hero-1800.jpg 1800w,
-                     photos/hero/hero-2400.jpg 2400w"
+                srcset="photos/hero/hero-1200.webp?v=ed88adb0 1200w,
+                        photos/hero/hero-1800.webp?v=ed88adb0 1800w,
+                        photos/hero/hero-2400.webp?v=ed88adb0 2400w">
+        <img src="photos/hero/hero-1800.jpg?v=ed88adb0" sizes="100vw"
+             srcset="photos/hero/hero-1200.jpg?v=ed88adb0 1200w,
+                     photos/hero/hero-1800.jpg?v=ed88adb0 1800w,
+                     photos/hero/hero-2400.jpg?v=ed88adb0 2400w"
              alt="The Chicago skyline at sunset from the lakefront, with the sun flaring low between the buildings"
              width="2400" height="1600" fetchpriority="high">
       </picture>
@@ -97,7 +97,7 @@
       <div>
         <p class="eyebrow">In motion</p>
         <h2>Some of it moves</h2>
-        <p>Short clips from the same walks and the same desk. The first three are the Handycam, soft and standard definition on purpose. Sound off, nothing asked of you.</p>
+        <p>Short clips from the same walks and the same desk. The first two are the Handycam, soft and standard definition on purpose. Sound off, nothing asked of you.</p>
       </div>
     </div>
     <div class="filmstrip reveal" id="filmstrip"></div>
@@ -258,8 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
           used.add(cover.slug);
           return `
             <a class="coll-card" href="portfolio.html#${c.id}">
-              <img src="photos/thumb/${cover.slug}.jpg"
-                   srcset="photos/thumb/${cover.slug}.jpg 1000w, photos/full/${cover.slug}.jpg ${cover.w}w"
+              <img src="${photoURL(cover,"thumb")}"
+                   srcset="${photoURL(cover,"thumb")} 1000w, ${photoURL(cover,"full")} ${cover.w}w"
                    sizes="(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 30vw"
                    alt="${esc(c.name)}: ${esc(cover.title)}" loading="lazy">
               <span class="coll-scrim"></span>
@@ -278,7 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const CLIPS = [
     { file: "camcorder-table",     tag: "Sony Handycam",          alt: "Friends around a restaurant table under string lights, filmed on a standard-definition camcorder" },
     { file: "camcorder-moon",      tag: "Sony Handycam",          alt: "The moon rising through cloud over Lake Michigan, filmed on a standard-definition camcorder" },
-    { file: "camcorder-lakefront", tag: "Sony Handycam",          alt: "Boats moored off the Chicago lakefront at dusk, filmed on a standard-definition camcorder" },
     { file: "river-bluehour",      tag: "Chicago River",          alt: "The Chicago River at blue hour, seen from above" },
     { file: "chicago-festival",    tag: "Chicago street festival", alt: "A summer street festival crowd with the Chicago skyline behind" },
     { file: "festival-crowd",      tag: "Chicago street festival", alt: "A crowd along the barrier at a Chicago street festival" },
@@ -352,14 +351,14 @@ document.addEventListener("DOMContentLoaded", () => {
   teaser.forEach(s => used.add(s));
   document.getElementById("print-teaser").innerHTML = teaser.map(s => `
     <a href="prints.html#order-${s}" style="display:block;overflow:hidden">
-      <img src="photos/thumb/${s}.jpg" alt="${esc(bySlug[s].title)}"
+      <img src="${photoURL(s,"thumb")}" alt="${esc(bySlug[s].title)}"
            style="width:100%;aspect-ratio:1;object-fit:cover;object-position:${(SITE.focus && SITE.focus[s]) || "50% 50%"}"
            loading="lazy">
     </a>`).join("");
 
   const portrait = bySlug[SITE.portraitsOfMe.homeTeaser] || bySlug["records"];
   document.getElementById("about-teaser-img").innerHTML = `
-    <img src="photos/full/${portrait.slug}.jpg" alt="Sammer Marzouk"
+    <img src="${photoURL(portrait,"full")}" alt="Sammer Marzouk"
          style="${framedPhoto(portrait)}" loading="lazy">`;
 
   document.querySelectorAll("[data-mail]").forEach(a => {

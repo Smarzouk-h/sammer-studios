@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const portrait = bySlug[SITE.portraitsOfMe.aboutPage] || bySlug["records"];
   document.getElementById("about-portrait").innerHTML = `
-    <img src="photos/full/${portrait.slug}.jpg" alt="Sammer Marzouk"
+    <img src="${photoURL(portrait,"full")}" alt="Sammer Marzouk"
          style="width:100%;aspect-ratio:4/5;object-fit:cover" loading="eager">
     <p style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dimmer);margin-top:.8rem">
       Sammer Marzouk · ${esc(portrait.location)}
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cpHost = document.getElementById("contact-portrait");
   if (cpHost && contactPortrait) {
     cpHost.innerHTML = `
-      <img src="photos/full/${contactPortrait.slug}.jpg" alt="Sammer Marzouk"
+      <img src="${photoURL(contactPortrait,"full")}" alt="Sammer Marzouk"
            style="${framedPhoto(contactPortrait)}" loading="lazy">`;
   }
 

@@ -39,10 +39,10 @@ function tileHTML(p, { cls = "", sizes = "(max-width: 640px) 50vw, 33vw", eager 
             aria-label="View ${esc(p.title)}, ${esc(p.location)}">
       <picture>
         <source type="image/webp" sizes="${sizes}"
-                srcset="photos/thumb/${p.slug}.webp ${thumbW}w, photos/full/${p.slug}.webp ${fullW}w">
-        <img src="photos/thumb/${p.slug}.jpg" alt="${esc(p.title)}, ${esc(p.location)}"
+                srcset="${photoURL(p,"thumb","webp")} ${thumbW}w, ${photoURL(p,"full","webp")} ${fullW}w">
+        <img src="${photoURL(p,"thumb")}" alt="${esc(p.title)}, ${esc(p.location)}"
              sizes="${sizes}"
-             srcset="photos/thumb/${p.slug}.jpg ${thumbW}w, photos/full/${p.slug}.jpg ${fullW}w"
+             srcset="${photoURL(p,"thumb")} ${thumbW}w, ${photoURL(p,"full")} ${fullW}w"
              width="${p.w}" height="${p.h}"
              loading="${eager ? "eager" : "lazy"}"${eager ? ' decoding="sync"' : ""}
              style="background-image:url('${p.lqip}')">
@@ -52,6 +52,14 @@ function tileHTML(p, { cls = "", sizes = "(max-width: 640px) 50vw, 33vw", eager 
         <span>${esc(p.location)}</span>
       </span>
     </button>`;
+}
+
+/** URL for a photograph, carrying its content hash so a replaced picture is
+    never served from cache while unchanged ones stay cached. */
+function photoURL(p, size = "full", ext = "jpg") {
+  const o = typeof p === "string" ? bySlug[p] : p;
+  if (!o) return "";
+  return `photos/${size}/${o.slug}.${ext}${o.v ? `?v=${o.v}` : ""}`;
 }
 
 /** Inline style for a standalone photograph, e.g. the About portraits.
@@ -188,7 +196,7 @@ const Lightbox = {
       img.alt = `${p.title}, ${p.location}`;
       img.classList.add("is-ready");
     };
-    next.src = `photos/full/${p.slug}.jpg`;
+    next.src = photoURL(p, "full");
 
     $(".lb-count", el).textContent = `${i + 1} / ${this.list.length}`;
     $(".lb-foot h3", el).textContent = p.title;
@@ -203,7 +211,7 @@ const Lightbox = {
     // preload neighbours
     [1, -1].forEach(d => {
       const n = this.list[(i + d + this.list.length) % this.list.length];
-      if (n) new Image().src = `photos/full/${n.slug}.jpg`;
+      if (n) new Image().src = photoURL(n, "full");
     });
   },
 };

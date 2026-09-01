@@ -80,7 +80,7 @@ const PrintPicker = {
     $("[data-pp-title]", this.el).textContent = p.title;
     $("[data-pp-loc]", this.el).textContent = `${p.location} · ${collectionName(p.collection)}`;
     const img = $("[data-pp-img]", this.el);
-    img.src = `photos/thumb/${p.slug}.jpg`;
+    img.src = photoURL(p, "thumb");
     img.alt = `${p.title}, ${p.location}`;
     $("#pp-qty", this.el).value = 1;
 
@@ -186,7 +186,7 @@ function paintCart() {
     <ul class="cart-lines">
       ${items.map((it, i) => `
         <li class="cart-line">
-          <img src="photos/thumb/${it.slug}.jpg" alt="" width="46" height="46" loading="lazy">
+          <img src="${photoURL(it.slug, "thumb")}" alt="" width="46" height="46" loading="lazy">
           <div>
             <b>${esc(it.title)}</b>
             <span>${esc(it.family)} · ${esc(it.size)} · ×${it.qty}</span>

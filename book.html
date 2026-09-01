@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bp = document.getElementById("book-portrait");
   if (bp && me) {
     bp.innerHTML = `
-      <img src="photos/full/${me.slug}.jpg" alt="Sammer Marzouk"
+      <img src="${photoURL(me,"full")}" alt="Sammer Marzouk"
            style="${framedPhoto(me)}" loading="lazy">
       <p style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dimmer);margin-top:.7rem">
         Sammer Marzouk

@@ -215,6 +215,11 @@ both Instagram handles. Change the text between the quotes and reload.
 After editing, hard-refresh (Cmd-Shift-R). Browsers hold on to the old config
 file otherwise.
 
+Photographs do not have that problem. Every image URL carries a short hash of
+the file, so replacing a picture changes its address and nobody can be served
+the old one, while everything unchanged keeps its URL and stays cached. The
+hero is stamped the same way at build time.
+
 ### Photographs of you are kept out of the portfolio
 
 `records`, `under-the-lanterns`, `looking-out-at-petra`, `me-with-camera` and
