@@ -77,9 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const TABS = [{ id: "all", name: "Everything", blurb: "" }, ...COLLECTIONS];
 
-  // Distinct old bodies present in the work, most-used first.
+  // Every camera present in the work, most-used first.
   const camCount = {};
-  ordered.forEach(p => { if (p.vintage) camCount[p.vintage] = (camCount[p.vintage] || 0) + 1; });
+  ordered.forEach(p => { if (p.camera) camCount[p.camera] = (camCount[p.camera] || 0) + 1; });
   const cameras = Object.keys(camCount).sort((a, b) => camCount[b] - camCount[a]);
 
   // Grouped so commissioned work reads separately from personal work.
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function show(id, push = true) {
     current = id === "all"            ? ordered
-            : id.startsWith("cam:")   ? ordered.filter(p => p.vintage === id.slice(4))
+            : id.startsWith("cam:")   ? ordered.filter(p => p.camera === id.slice(4))
             :                           ordered.filter(p => p.collection === id);
 
     grid.innerHTML = current.map((p, i) =>
@@ -123,9 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let intro = tab && tab.blurb ? tab.blurb : "";
     if (id.startsWith("cam:")) {
       const cam = id.slice(4);
-      intro = `Shot on a ${cam}. ` + (cam.includes("Rebel")
-        ? "The Dar Baklava commission was made on this body. The camera matters a great deal less than people think."
-        : "Still in use, and still earning its place.");
+      intro = `Shot on a ${cam}. ` + (
+        cam.includes("Rebel") ? "The Dar Baklava commission was made on this body, nineteen years old and still working. The camera matters a great deal less than people think."
+      : cam.includes("A7 IV") ? "The main body, and most of the commissioned work."
+      : cam.includes("iPhone") ? "Kept because the picture was worth more than the sensor."
+      : "Still in use, and still earning its place.");
     }
     blurbEl.textContent = intro;
     blurbEl.hidden = !intro;

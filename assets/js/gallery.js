@@ -194,7 +194,7 @@ const Lightbox = {
     $(".lb-foot h3", el).textContent = p.title;
     $(".lb-foot .meta", el).innerHTML =
       `${esc(p.location)} · ${esc(collectionName(p.collection))}` +
-      (p.vintage ? ` · <span class="vintage-tag">${esc(p.vintage)}</span>` : "");
+      (p.camera ? ` · <span class="vintage-tag">${esc(p.camera)}</span>` : "");
     $$(".lb-nav", el).forEach(b => b.style.display = this.list.length > 1 ? "" : "none");
     $(".lb-buy", el).style.display = forSale(p) ? "" : "none";
 

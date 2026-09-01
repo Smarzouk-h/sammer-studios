@@ -684,17 +684,24 @@ select {
 }
 
 /* --------------------------------------------------------------- note band
-   Pricing small print reads as a deliberate panel rather than a stray
-   left-aligned paragraph hanging under the package grid. */
+   Pricing small print, centred. The border is even on all four sides and the
+   text block is centred in the panel: a heavier accent on one edge, or a
+   measure that hugs the left of a full-width box, both read as lopsided. */
 .note-band {
   margin-top: clamp(1.5rem, 3vw, 2.4rem);
-  border: var(--rule); border-left: 2px solid var(--gold);
-  border-radius: 3px; background: var(--ink-2);
-  padding: clamp(1.2rem, 2.5vw, 1.8rem) clamp(1.3rem, 3vw, 2.2rem);
+  border: var(--rule); border-radius: 3px; background: var(--ink-2);
+  padding: clamp(1.5rem, 3vw, 2.2rem) clamp(1.3rem, 3vw, 2.2rem);
+  text-align: center;
 }
+.note-band .eyebrow { margin-bottom: .9rem; }
 .note-band p:last-child {
-  margin: 0; color: var(--paper-dim); font-size: .92rem;
-  line-height: 1.65; max-width: 78ch;
+  margin: 0 auto; color: var(--paper-dim); font-size: .95rem;
+  line-height: 1.7; max-width: 68ch; text-wrap: pretty;
+}
+/* A short centred rule instead of the old left edge accent. */
+.note-band::before {
+  content: ""; display: block; width: 42px; height: 2px;
+  background: var(--gold); margin: 0 auto 1.1rem; opacity: .85;
 }
 
 /* ----------------------------------------------------------- filter rows */

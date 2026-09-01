@@ -281,8 +281,8 @@
 280	new/b3/IMG_5015.JPG
 281	new/frames/callig_13.jpg
 282	new/frames/callig_17.jpg
-283	edited/DSC01648.jpg
-284	edited/DSC01779.jpg
+283	new/b4/DSC01648.jpg
+284	new/b4/DSC01779.jpg
 285	new/b4/DSC01972.jpg
 286	new/b4/DSC09670.JPG
 287	new/b4/DSC00628.JPG
@@ -293,9 +293,9 @@
 292	new/b6/IMG_7693.JPG
 293	new/b6/IMG_7538.JPG
 294	new/b6/IMG_7128.JPG
-295	edited/DSC00243.jpg
-296	edited/DSC01810.jpg
-297	edited/DSC01925.jpg
-298	edited/DSC02067.jpg
-299	edited/DSC00551.jpg
-300	edited/DSC07407.jpg
+295	new/b5/DSC00243.jpg
+296	new/b5/DSC01810.jpg
+297	new/b5/DSC01925.jpg
+298	new/b5/DSC02067.jpg
+299	new/b5/DSC00551.jpg
+300	new/b5/DSC07407.jpg

@@ -43,6 +43,12 @@ for i in 4 5; do
   z="$HOME/Downloads/Photos-1-001 ($i).zip"
   [ -f "$z" ] && unzip -q -o -j "$z" -x "*.MP4" "*.MOV" -d "$DEST/new/b4"
 done
+# Loose portrait and event frames.
+mkdir -p "$DEST/new/b5"
+for f in DSC00243.jpg DSC01810.jpg DSC01925.jpg DSC02067.jpg DSC00551.jpg DSC07407.jpg; do
+  [ -f "$HOME/Downloads/$f" ] && cp "$HOME/Downloads/$f" "$DEST/new/b5/"
+done
+
 # Later batches: the Finjan popup and the Japan set.
 for i in 6 7; do
   z="$HOME/Downloads/Photos-1-001 ($i).zip"

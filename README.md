@@ -136,11 +136,15 @@ Handycam, so both now earn their place rather than sitting in a drawer:
 - **A "Vintage & Camcorder" package**, from $150, that can be added to any
   session or booked alone. Retro camcorder footage is genuinely in demand for
   weddings and parties right now, and you own the gear for it.
-- **A "Shot on" row** on the portfolio, one button per old body, named:
-  "Canon Rebel XTi, 2006" and "Canon EOS 5D, 2005". They cut across the
-  collections rather than replacing them, so a photograph stays in Product or
-  Travel and can also be found by the camera that took it. The list builds
-  itself from the EXIF, so a third body would appear on its own.
+- **A "Shot on" row** on the portfolio with a button per camera, every body
+  you use: Sony A7 IV, iPhone 14, Canon Rebel XTi 2006, iPhone 14 Pro Max,
+  iPhone 17 Pro Max, Canon EOS 5D 2005. They cut across the collections rather
+  than replacing them, so a photograph stays in Product or Travel and can also
+  be found by the camera that took it. The list builds itself from the EXIF, so
+  a new body appears on its own with no code change.
+
+  The Handycam is not in that row because it only ever shot video and the row
+  filters photographs. It is labelled on its clips in the motion strip instead.
 - The camera is named in the lightbox caption, but only for the old bodies.
   Naming the A7 IV on every frame would be noise; "Canon Rebel XTi, 2006" is
   the point.
@@ -222,30 +226,6 @@ never appear in the portfolio or the print shop.
 
 If any of those are actually yours, move them back to a real collection in
 `tools/curation.py` and rebuild.
-
-### Retouching portraits
-
-`tools/retouch-portraits.py` cleans up a studio headshot:
-
-```bash
-python3 tools/retouch-portraits.py in.jpg out.jpg           # studio backdrop
-python3 tools/retouch-portraits.py in.jpg out.jpg outdoor   # no backdrop
-```
-
-It neutralises the colour cast, lifts the backdrop to an even near-white so
-the lighting shadow behind the subject disappears, and adds a gentle S-curve.
-The backdrop lift runs twice: a deep shadow only registers weakly on the first
-pass and reads as background on the second. Measured on your headshots, the
-backdrop went from a 12 to 50 point spread down to 1 to 6, sitting at 246 to
-248 instead of 190 to 240.
-
-It does not touch skin, on purpose. Automated skin work is what makes a
-headshot look processed, and the backdrop was the actual problem. Blemishes,
-stray hairs and real dodge and burn still want a person in Lightroom.
-
-Edited files live in `edited/` inside your source folder and are referenced
-from `tools/_source_index.txt`, so a rebuild always uses the retouched version
-rather than the original.
 
 ### Adding or removing photographs
 

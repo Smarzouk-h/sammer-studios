@@ -72,12 +72,18 @@ def lqip(src):
         return "data:image/jpeg;base64," + base64.b64encode(f.read()).decode()
 
 
-# Cameras worth naming on the site. Everything else is left blank: the make and
-# model of a current body is noise, but "shot on a 2006 Rebel" is the point.
-VINTAGE = {
+# EXIF model strings mapped to how the camera should read on the site. Anything
+# not listed falls back to the raw model string, so a new body still shows up
+# with a sensible name rather than disappearing.
+CAMERAS = {
+    "ILCE-7M4": "Sony A7 IV",
     "Canon EOS DIGITAL REBEL XTi": "Canon Rebel XTi, 2006",
     "Canon EOS 5D": "Canon EOS 5D, 2005",
-    "DCR-DVD650": "Sony Handycam DCR-DVD650",
+    "iPhone 14": "iPhone 14",
+    "iPhone 14 Pro Max": "iPhone 14 Pro Max",
+    "iPhone 17 Pro Max": "iPhone 17 Pro Max",
+    "DC VARIO-SUMMILUX 1:1.7-2.8/10.9-34 ASPH.": "Leica D-Lux 8",
+    "DCR-DVD650": "Sony Handycam",
 }
 
 
@@ -118,7 +124,7 @@ def build(entry):
     return {
         "slug": slug, "title": title, "collection": coll, "location": loc,
         "featured": feat, "w": w, "h": h,
-        "vintage": VINTAGE.get(model, ""),
+        "camera": CAMERAS.get(model, model),
         "orient": "square" if abs(w - h) / max(w, h) < 0.06 else ("landscape" if w > h else "portrait"),
     }
 
