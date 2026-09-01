@@ -136,9 +136,11 @@ Handycam, so both now earn their place rather than sitting in a drawer:
 - **A "Vintage & Camcorder" package**, from $150, that can be added to any
   session or booked alone. Retro camcorder footage is genuinely in demand for
   weddings and parties right now, and you own the gear for it.
-- **An "Old cameras" filter** on the portfolio, under the collection buttons.
-  It cuts across the collections rather than replacing them: a photograph stays
-  in Product or Travel and can also be seen with the rest of the Rebel work.
+- **A "Shot on" row** on the portfolio, one button per old body, named:
+  "Canon Rebel XTi, 2006" and "Canon EOS 5D, 2005". They cut across the
+  collections rather than replacing them, so a photograph stays in Product or
+  Travel and can also be found by the camera that took it. The list builds
+  itself from the EXIF, so a third body would appear on its own.
 - The camera is named in the lightbox caption, but only for the old bodies.
   Naming the A7 IV on every frame would be noise; "Canon Rebel XTi, 2006" is
   the point.

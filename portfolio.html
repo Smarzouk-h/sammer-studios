@@ -77,6 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const TABS = [{ id: "all", name: "Everything", blurb: "" }, ...COLLECTIONS];
 
+  // Distinct old bodies present in the work, most-used first.
+  const camCount = {};
+  ordered.forEach(p => { if (p.vintage) camCount[p.vintage] = (camCount[p.vintage] || 0) + 1; });
+  const cameras = Object.keys(camCount).sort((a, b) => camCount[b] - camCount[a]);
+
   // Grouped so commissioned work reads separately from personal work.
   const groups = [];
   COLLECTIONS.forEach(c => {
@@ -95,27 +100,33 @@ document.addEventListener("DOMContentLoaded", () => {
         ${g.items.map(c =>
           `<button class="filter" data-id="${c.id}" aria-pressed="false">${esc(c.name)}</button>`).join("")}
       </div>`).join("") +
-    // A tag that cuts across the collections rather than replacing them: these
-    // photographs stay where they belong and can also be seen together.
-    (ordered.some(p => p.vintage) ? `
+    // One button per old camera, named. These cut across the collections
+    // rather than replacing them: a photograph stays in Product or Travel and
+    // can also be found by the body that took it.
+    (cameras.length ? `
       <div class="filter-row">
         <span class="filter-label">Shot on</span>
-        <button class="filter" data-id="vintage" aria-pressed="false">Old cameras</button>
+        ${cameras.map(c =>
+          `<button class="filter" data-id="cam:${esc(c)}" aria-pressed="false">${esc(c)}</button>`).join("")}
       </div>` : "");
 
   function show(id, push = true) {
-    current = id === "all"     ? ordered
-            : id === "vintage" ? ordered.filter(p => p.vintage)
-            :                    ordered.filter(p => p.collection === id);
+    current = id === "all"            ? ordered
+            : id.startsWith("cam:")   ? ordered.filter(p => p.vintage === id.slice(4))
+            :                           ordered.filter(p => p.collection === id);
 
     grid.innerHTML = current.map((p, i) =>
       tileHTML(p, { sizes: "(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 25vw", eager: i < 6 })).join("");
 
     empty.style.display = current.length ? "none" : "block";
     const tab = TABS.find(t => t.id === id);
-    const intro = id === "vintage"
-      ? "Everything here was made on a 2006 Canon Rebel XTi or an older body, including the Dar Baklava commission. The camera matters a great deal less than people think."
-      : (tab && tab.blurb ? tab.blurb : "");
+    let intro = tab && tab.blurb ? tab.blurb : "";
+    if (id.startsWith("cam:")) {
+      const cam = id.slice(4);
+      intro = `Shot on a ${cam}. ` + (cam.includes("Rebel")
+        ? "The Dar Baklava commission was made on this body. The camera matters a great deal less than people think."
+        : "Still in use, and still earning its place.");
+    }
     blurbEl.textContent = intro;
     blurbEl.hidden = !intro;
 

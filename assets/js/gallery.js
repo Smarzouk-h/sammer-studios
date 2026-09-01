@@ -14,6 +14,10 @@ const PHOTOS      = ALL_PHOTOS.filter(p => !HIDDEN.has(p.collection));
 
 // bySlug still indexes everything, so About pages can reach the hidden ones.
 const bySlug = Object.fromEntries(ALL_PHOTOS.map(p => [p.slug, p]));
+
+/** Commissioned photographs of private people are not sold as prints. */
+const NO_SALE = new Set(SITE.printExclude || []);
+const forSale = p => !!p && !NO_SALE.has(p.collection) && !HIDDEN.has(p.collection);
 const collectionName = id => (COLLECTIONS.find(c => c.id === id) || {}).name || id;
 
 /** Featured photos, strongest first, then by collection for variety. */
@@ -192,6 +196,7 @@ const Lightbox = {
       `${esc(p.location)} · ${esc(collectionName(p.collection))}` +
       (p.vintage ? ` · <span class="vintage-tag">${esc(p.vintage)}</span>` : "");
     $$(".lb-nav", el).forEach(b => b.style.display = this.list.length > 1 ? "" : "none");
+    $(".lb-buy", el).style.display = forSale(p) ? "" : "none";
 
     history.replaceState({ lb: true }, "", `#photo-${p.slug}`);
 

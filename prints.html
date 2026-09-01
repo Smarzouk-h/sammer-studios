@@ -120,10 +120,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("grid");
   const filters = document.getElementById("filters");
-  const ordered = PHOTOS.slice().sort((a, b) => b.featured - a.featured);
+  // People are not stock. Anything in printExclude never reaches the shop.
+  const noSale = new Set(SITE.printExclude || []);
+  const forSale = PHOTOS.filter(p => !noSale.has(p.collection));
+  const ordered = forSale.slice().sort((a, b) => b.featured - a.featured);
   let current = ordered;
 
-  const TABS = [{ id: "all", name: "Everything" }, ...COLLECTIONS];
+  const TABS = [{ id: "all", name: "Everything" },
+                ...COLLECTIONS.filter(c => !noSale.has(c.id))];
   filters.innerHTML = TABS.map(t =>
     `<button class="filter" data-id="${t.id}" aria-pressed="${t.id === "all"}">${esc(t.name)}</button>`).join("");
 

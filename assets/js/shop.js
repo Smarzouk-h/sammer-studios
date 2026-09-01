@@ -66,6 +66,11 @@ const PrintPicker = {
   open(slug) {
     const p = bySlug[slug];
     if (!p) return;
+    // Guards the prints.html#order-<slug> deep link as well as the grid.
+    if (typeof forSale === "function" && !forSale(p)) {
+      toast("That one is not sold as a print");
+      return;
+    }
     this.mount();
     this.slug = slug;
     this.family = FAMILIES[0];

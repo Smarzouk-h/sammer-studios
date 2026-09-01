@@ -247,6 +247,11 @@ const SITE = {
     Framed: "Matted print in a simple black or white frame, behind glass.",
   },
 
+  // Collections that are never sold as prints. Portraits are commissioned
+  // photographs of private people: they are not mine to sell, whatever the
+  // sitter agreed to for the website.
+  printExclude: ["portraits"],
+
   shippingFlat: 9,          // flat shipping added to every print order
   currency: "USD",
   currencySymbol: "$",
