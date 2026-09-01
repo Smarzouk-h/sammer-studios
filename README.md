@@ -79,6 +79,43 @@ it for you.
 Calendly and Cal.com links work in the same slot. It has to be a page that
 allows embedding: a booking page does, a plain calendar.google.com URL does not.
 
+## Changing things later
+
+Almost everything you will want to change is text, and lives in one file:
+`assets/js/site-config.js`. Prices, packages, testimonials, the About copy,
+your email, both Instagram handles, print sizes. Edit the text between the
+quotes, then:
+
+```bash
+cd ~/Downloads/Personal\ Folder/sammer-studios
+./tools/publish.sh
+```
+
+The site updates about a minute later. That is the whole loop.
+
+To add or remove photographs, edit `tools/curation.py`, then run the two
+commands under **Adding or removing photographs** below. That one needs the
+originals on hand.
+
+### If you delete this folder
+
+You can. Every file is on GitHub. To get it back:
+
+```bash
+git clone https://github.com/Smarzouk-h/sammer-studios.git
+```
+
+You will be able to edit and publish exactly as before. The only thing not in
+the repository is `tools/costs.local.md`, your print margins, which is
+gitignored on purpose.
+
+### What you must NOT delete
+
+**The GitHub repository is the website.** GitHub Pages serves sammerstudios.com
+directly out of `github.com/Smarzouk-h/sammer-studios`. Delete that repository
+and the site goes down: the domain will resolve to nothing. It is not a copy of
+the site, it is the site.
+
 ## How print orders actually work
 
 Nothing is automated, and nothing charges a card. The flow is:
