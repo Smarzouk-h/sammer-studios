@@ -19,6 +19,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://sammerstudios.com/about.html#sammer",
+  "name": "Sammer Marzouk",
+  "jobTitle": "Photographer",
+  "description": "Photographer in Chicago and an MD/PhD student at Northwestern.",
+  "url": "https://sammerstudios.com/about.html",
+  "image": "https://sammerstudios.com/assets/img/og.jpg",
+  "email": "marzouksammer@gmail.com",
+  "worksFor": {
+    "@id": "https://sammerstudios.com/#studio"
+  },
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Chicago, Illinois"
+  },
+  "sameAs": [
+    "https://instagram.com/sammerstudios",
+    "https://instagram.com/sammer_marz"
+  ]
+}
+</script>
 </head>
 <body class="page-solid">
 
@@ -123,7 +148,21 @@
 
 </main>
 
-<footer class="site-foot" id="site-foot"></footer>
+<footer class="site-foot" id="site-foot">
+  <!-- Static fallback, replaced by buildFooter() in assets/js/site.js on load.
+       It lives in the HTML so a crawler that does not run JavaScript still sees
+       every internal link. Do not delete: without it the raw HTML of this page
+       links to nothing. -->
+  <div class="wrap">
+    <nav class="foot-static" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="prints.html">Prints</a>
+      <a href="about.html">About</a>
+      <a href="book.html">Book a session</a>
+    </nav>
+  </div>
+</footer>
 
 <script src="assets/js/site-config.js"></script>
 <script src="data/photos.js"></script>

@@ -22,6 +22,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="preload" as="image" href="photos/hero/hero-1800.webp?v=ed88adb0" type="image/webp" imagesrcset="photos/hero/hero-1200.webp?v=ed88adb0 1200w, photos/hero/hero-1800.webp?v=ed88adb0 1800w, photos/hero/hero-2400.webp?v=ed88adb0 2400w" imagesizes="100vw">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://sammerstudios.com/#studio",
+  "name": "Sammer Studios",
+  "alternateName": "Sammer Marzouk Photography",
+  "description": "Photography by Sammer Marzouk in Chicago: headshots, engagements, events, and product work, plus fine-art prints and hand calligraphy.",
+  "url": "https://sammerstudios.com/",
+  "image": "https://sammerstudios.com/assets/img/og.jpg",
+  "email": "marzouksammer@gmail.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chicago",
+    "addressRegion": "IL",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Chicago"
+  },
+  "founder": {
+    "@id": "https://sammerstudios.com/about.html#sammer"
+  },
+  "sameAs": [
+    "https://instagram.com/sammerstudios",
+    "https://instagram.com/sammer_marz"
+  ],
+  "knowsAbout": [
+    "Portrait photography",
+    "Event photography",
+    "Product photography",
+    "Fine-art printing",
+    "Arabic calligraphy"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://sammerstudios.com/#website",
+  "name": "Sammer Studios",
+  "url": "https://sammerstudios.com/",
+  "publisher": {
+    "@id": "https://sammerstudios.com/#studio"
+  },
+  "inLanguage": "en-US"
+}
+</script>
 </head>
 <body>
 
@@ -186,7 +238,21 @@
 
 </main>
 
-<footer class="site-foot" id="site-foot"></footer>
+<footer class="site-foot" id="site-foot">
+  <!-- Static fallback, replaced by buildFooter() in assets/js/site.js on load.
+       It lives in the HTML so a crawler that does not run JavaScript still sees
+       every internal link. Do not delete: without it the raw HTML of this page
+       links to nothing. -->
+  <div class="wrap">
+    <nav class="foot-static" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="prints.html">Prints</a>
+      <a href="about.html">About</a>
+      <a href="book.html">Book a session</a>
+    </nav>
+  </div>
+</footer>
 
 <script src="assets/js/site-config.js"></script>
 <script src="data/photos.js"></script>

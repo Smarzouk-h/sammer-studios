@@ -839,3 +839,9 @@ select {
   padding: .3rem .55rem; border-radius: 2px;
   pointer-events: none;
 }
+
+/* Static footer links present in the raw HTML for crawlers. buildFooter()
+   replaces them on load, so this only ever shows if JavaScript is off. */
+.foot-static { display: flex; flex-wrap: wrap; gap: 1.4rem; }
+.foot-static a { color: var(--paper-dim); text-decoration: none; }
+.foot-static a:hover { color: var(--paper); }
