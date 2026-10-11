@@ -9,7 +9,7 @@ or need updating in six months.
 
 ```
 index.html         Home
-portfolio.html     98 photographs, grouped and filterable, with a lightbox
+portfolio.html     153 photographs, grouped and filterable, with a lightbox
 prints.html        The shop: pick a photo, pick a size, send the order
 book.html          Session packages, a request form, and a calendar slot
 about.html         Bio and contact

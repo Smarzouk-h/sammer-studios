@@ -139,6 +139,62 @@ CURATION = [
     # shutter. Used for the About pages. Hidden from the portfolio and shop.
     (288, "me-with-camera",        "At work",                      "me",       "Chicago, IL", 3),
     (287, "me-at-the-bridge",      "By the bridge",                "me",       "New York, NY", 2),
+
+    # ---------------- OCTOBER 2026 BATCH (Photos-1-001 (8).zip) ----------------
+    # ---- Chicago ----
+    (307, "the-colossus",          "The Colossus",                 "chicago",  "ISAC Museum, Chicago", 1),
+    (308, "the-worshipper",        "The Worshipper",               "chicago",  "ISAC Museum, Chicago", 1),
+    (309, "sunset-over-the-park",  "Sunset Over the Park",         "chicago",  "Chicago, IL", 1),
+    (310, "river-boat-night",      "Architecture Boat, Night",     "chicago",  "Chicago, IL", 2),
+    (311, "riverwalk-noon",        "Riverwalk at Noon",            "chicago",  "Chicago, IL", 1),
+    (312, "the-pillars",           "The Pillars",                  "chicago",  "Chicago, IL", 0),
+    (313, "market-table",          "Market Table",                 "chicago",  "Chicago, IL", 0),
+    (314, "davis",                 "Davis",                        "chicago",  "Lincoln Square, Chicago", 1),
+    (315, "gourds",                "Gourds",                       "chicago",  "Chicago, IL", 1),
+    (316, "october",               "October",                      "chicago",  "Chicago, IL", 0),
+    (317, "street-at-dusk",        "Street at Dusk",               "chicago",  "Chicago, IL", 0),
+    (318, "dropped-hand",          "Dropped Hand",                 "chicago",  "Chicago, IL", 0),
+    (326, "rockefeller-chapel",    "Rockefeller Chapel",           "chicago",  "Hyde Park, Chicago", 2),
+    (327, "ivy-house",             "Ivy House",                    "chicago",  "Hyde Park, Chicago", 1),
+    (328, "botany-pond",           "Botany Pond",                  "chicago",  "Hyde Park, Chicago", 1),
+    (329, "ivy-at-dusk",           "Ivy at Dusk",                  "chicago",  "Hyde Park, Chicago", 1),
+    (330, "amor-y-paz",            "Amor y Paz",                   "chicago",  "Chicago, IL", 0),
+    (333, "glass-on-glass",        "Glass on Glass",               "chicago",  "Chicago, IL", 1),
+    (334, "towers-from-the-park",  "Towers from the Park",         "chicago",  "Chicago, IL", 1),
+    (336, "the-606-at-dusk",       "The 606 at Dusk",              "chicago",  "Chicago, IL", 1),
+    (337, "harbor-clouds",         "Harbor Clouds",                "chicago",  "Monroe Harbor, Chicago", 1),
+    (343, "pink-room",             "Pink Room",                    "chicago",  "Logan Square, Chicago", 0),
+    (344, "lifeguard-chair",       "Lifeguard Chair",              "chicago",  "Lake Michigan", 1),
+
+    # ---- Wisconsin Dells and Devil's Lake ----
+    (301, "devils-lake-dusk",      "Devil's Lake at Dusk",         "nature",   "Devil's Lake, WI", 2),
+    (303, "dells-from-the-water",  "The Dells from the Water",     "nature",   "Wisconsin Dells, WI", 2),
+    (304, "two-quarters",          "Two Quarters",                 "nature",   "Wisconsin Dells, WI", 0),
+    (305, "fern-wall",             "Fern Wall",                    "nature",   "Wisconsin Dells, WI", 1),
+    (306, "boats-under-the-bluff", "Boats Under the Bluff",        "nature",   "Devil's Lake, WI", 0),
+    (320, "river-bluffs",          "River Bluffs",                 "nature",   "Wisconsin Dells, WI", 1),
+    (321, "sandstone-and-pine",    "Sandstone and Pine",           "nature",   "Wisconsin Dells, WI", 2),
+    (322, "pines-on-the-ledge",    "Pines on the Ledge",           "nature",   "Wisconsin Dells, WI", 0),
+    (323, "green-gulch",           "Green Gulch",                  "nature",   "Wisconsin Dells, WI", 1),
+    (324, "gulch-boardwalk",       "The Gulch Boardwalk",          "nature",   "Wisconsin Dells, WI", 2),
+    (325, "the-overhang",          "The Overhang",                 "nature",   "Wisconsin Dells, WI", 1),
+    (335, "cliff-face",            "Cliff Face",                   "nature",   "Wisconsin Dells, WI", 0),
+    (338, "canyon-walk",           "Canyon Walk",                  "nature",   "Wisconsin Dells, WI", 1),
+    (339, "slot-of-sky",           "Slot of Sky",                  "nature",   "Wisconsin Dells, WI", 1),
+    (340, "light-in-the-gulch",    "Light in the Gulch",           "nature",   "Wisconsin Dells, WI", 1),
+    (342, "devils-lake-bluffs",    "Devil's Lake Bluffs",          "nature",   "Devil's Lake, WI", 1),
+    (332, "yellow-by-the-lake",    "Yellow by the Lake",           "nature",   "Chicago, IL", 1),
+
+    # ---- Travel ----
+    (341, "stone-arch-bridge",     "Stone Arch Bridge",            "travel",   "Minneapolis, MN", 1),
+    (302, "the-lantern-shop",      "The Lantern Shop",             "travel",   "Wisconsin", 1),
+    (346, "zoltar",                "Zoltar",                       "travel",   "Wisconsin Dells, WI", 1),
+
+    # ---- Product & Brand ----
+    (331, "finjan-three-to-go",    "Finjan, Three to Go",          "product",  "Chicago, IL", 2),
+
+    # Left out on purpose: 319 (newspaper box with an explicit sticker) and
+    # 345 (the moon, underexposed to near black). Both are in the index if wanted.
 ]
 
 COLLECTIONS = {
@@ -155,9 +211,9 @@ COLLECTIONS = {
     "newyork":     {"group": "Personal work", "name": "New York",
                     "blurb": "Nights on foot with one lens. Street corners, bridges, and everything still open at 2 a.m."},
     "travel":      {"group": "Personal work", "name": "Travel",
-                    "blurb": "Jordan and Japan. Ruins at sunrise, rooftops at noon, and a market in Tokyo that does not close."},
+                    "blurb": "Jordan, Japan, and the Midwest by car. Ruins at sunrise, rooftops at noon, and a market in Tokyo that does not close."},
     "nature":      {"group": "Personal work", "name": "Nature",
-                    "blurb": "Smoky Mountain creeks, Illinois sandstone, and whatever holds still long enough."},
+                    "blurb": "Smoky Mountain creeks, Wisconsin and Illinois sandstone, and whatever holds still long enough."},
     # hidden: never listed as a collection, never sold as a print
     "me":          {"group": None, "hidden": True, "name": "Sammer",
                     "blurb": "Photographs of me, taken by other people."},

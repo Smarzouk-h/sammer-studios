@@ -49,8 +49,8 @@ for f in DSC00243.jpg DSC01810.jpg DSC01925.jpg DSC02067.jpg DSC00551.jpg DSC074
   [ -f "$HOME/Downloads/$f" ] && cp "$HOME/Downloads/$f" "$DEST/new/b5/"
 done
 
-# Later batches: the Finjan popup and the Japan set.
-for i in 6 7; do
+# Later batches: the Finjan popup, the Japan set, and the October 2026 set (Dells, Hyde Park).
+for i in 6 7 8; do
   z="$HOME/Downloads/Photos-1-001 ($i).zip"
   [ -f "$z" ] && unzip -q -o "$z" -d "$DEST/new/b$i"
 done
