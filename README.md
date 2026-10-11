@@ -292,6 +292,21 @@ python3 tools/build_images.py --source ~/Downloads/_photo-staging
 That takes about three minutes and rewrites `photos/` and `data/`. It needs
 ImageMagick (`brew install imagemagick`) and `pip3 install pillow pillow-heif`.
 
+If you only have the originals for the photographs you are adding (the
+usual case, since the earlier originals are not kept on disk), unpack just
+the new batch and run the incremental build instead. It renders only the
+curation entries whose slug is not yet in `data/photos.json`, then rewrites
+the data files in curation order:
+
+```bash
+mkdir -p ~/Downloads/_photo-staging/new/b9
+unzip -q "Photos-1-001 (9).zip" -d ~/Downloads/_photo-staging/new/b9
+python3 tools/build_incremental.py --site . --source ~/Downloads/_photo-staging
+```
+
+Before adding, check for duplicates: batch 8 turned out to be one third
+photographs that were already on the site.
+
 The source number on each line refers to `tools/_source_index.txt`, which maps
 numbers to original filenames. To add a photograph that is not in that list,
 add it to the index file with the next free number, then add a curation line.
