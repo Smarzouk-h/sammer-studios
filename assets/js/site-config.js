@@ -141,7 +141,7 @@ const SITE = {
       name: "Events",
       price: "$150 / hour",
       duration: "2 hour minimum",
-      summary: "Openings, receptions, department parties, and recitals. I have covered a hospital opening and enough academic events to know how to stay out of the way of the people running them.",
+      summary: "Openings, receptions, parades, department parties, and recitals. I was an official photographer for Chicago's 2026 Arts in the Dark Parade, and I have covered a hospital opening and enough academic events to know how to stay out of the way of the people running them.",
       includes: [
         "Two-hour minimum",
         "Roughly 60 edited images per hour",
@@ -202,6 +202,7 @@ const SITE = {
      actually Snacklava, or both, change the line below.
      ------------------------------------------------------------------ */
   experience: [
+    { client: "Arts in the Dark Parade",  work: "Official photographer, 2026", kind: "Event" },
     { client: "Northwestern Medicine",  work: "Bronzeville location opening", kind: "Event" },
     { client: "American Muslim Physician Association", work: "Annual banquet coverage", kind: "Event" },
     { client: "Dar Baklava",            work: "Product and packaging photography", kind: "Product" },

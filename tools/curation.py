@@ -110,6 +110,16 @@ CURATION = [
     (286, "nm-dermatology",        "Dermatology Outreach",         "events",   "Northwestern Medicine", 2),
     (300, "panel-discussion",      "The Panel",                    "events",   "Chicago, IL", 2),
 
+    # ---- Arts in the Dark Parade, 2026 (official photographer) ----
+    (350, "folklorico-at-night",  "Folklórico at Night",          "events",   "Arts in the Dark, Chicago", 3),
+    (354, "ofrenda-on-wheels",    "Ofrenda on Wheels",            "events",   "Arts in the Dark, Chicago", 2),
+    (349, "float-under-the-congress","Float Under the Congress",     "events",   "Arts in the Dark, Chicago", 2),
+    (353, "the-glowing-fox",      "The Glowing Fox",              "events",   "Arts in the Dark, Chicago", 2),
+    (352, "flag-bearer",          "Flag Bearer",                  "events",   "Arts in the Dark, Chicago", 2),
+    (351, "weathered-trooper",    "Weathered Trooper",            "events",   "Arts in the Dark, Chicago", 1),
+    (348, "bubbles-and-feathers", "Bubbles and Feathers",         "events",   "Arts in the Dark, Chicago", 1),
+    (347, "waving-from-the-curb", "Waving from the Curb",         "events",   "Arts in the Dark, Chicago", 0),
+
     # ---------------- PRODUCT & BRAND ----------------
     (279, "baklava-and-coffee",    "Boxed and Poured",             "product",  "Chicago, IL", 3),
     (280, "baklava-second-angle",  "Tray, Second Angle",           "product",  "Chicago, IL", 2),
@@ -201,7 +211,7 @@ COLLECTIONS = {
     "portraits":   {"group": "Commissions", "name": "Portraits",
                     "blurb": "Headshots, engagements, and graduations. Including the residency application photo you only want to sit for once."},
     "events":      {"group": "Commissions", "name": "Events",
-                    "blurb": "Openings, banquets, and department events. Hospitals and campus buildings are familiar ground."},
+                    "blurb": "Openings, banquets, department events, and parades, including official coverage of the 2026 Arts in the Dark Parade. Hospitals and campus buildings are familiar ground."},
     "product":     {"group": "Commissions", "name": "Product & Brand",
                     "blurb": "Food, packaging, and pop-up tables. The work small businesses actually need, shot in daylight where the product allows it."},
     "calligraphy": {"group": "Commissions", "name": "Calligraphy",

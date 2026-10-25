@@ -9,7 +9,7 @@ or need updating in six months.
 
 ```
 index.html         Home
-portfolio.html     153 photographs, grouped and filterable, with a lightbox
+portfolio.html     161 photographs, grouped and filterable, with a lightbox
 prints.html        The shop: pick a photo, pick a size, send the order
 book.html          Session packages, a request form, and a calendar slot
 about.html         Bio and contact
@@ -18,7 +18,7 @@ assets/js/site-config.js    ← the only file you normally need to edit
 assets/css/site.css         Styling
 data/photos.js              Generated. Do not edit by hand.
 photos/                     Web-sized images (thumb, full, hero)
-video/                      Nine silent ambient loops and their poster frames
+video/                      Thirteen silent ambient loops and their poster frames
 data/instagram.js           Synced Instagram posts. Empty by default.
 tools/                      Scripts to regenerate everything
 ```
