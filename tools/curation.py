@@ -126,6 +126,12 @@ CURATION = [
     (278, "barazek",               "Barazek, Window Light",        "product",  "Chicago, IL", 2),
     (289, "finjan-popup",          "Finjan, Opening Table",        "product",  "Chicago, IL", 3),
 
+    # ---- AdmitMD website (official photographer), University of Chicago ----
+    (326, "rockefeller-chapel",    "Rockefeller Chapel",           "product",  "University of Chicago, for AdmitMD", 2),
+    (327, "ivy-house",             "Ivy House",                    "product",  "University of Chicago, for AdmitMD", 1),
+    (328, "botany-pond",           "Botany Pond",                  "product",  "University of Chicago, for AdmitMD", 1),
+    (329, "ivy-at-dusk",           "Ivy at Dusk",                  "product",  "University of Chicago, for AdmitMD", 1),
+
     # ---------------- CALLIGRAPHY ----------------
     (281, "the-letter",            "The Letter",                   "calligraphy", "Studio", 3),
     (282, "mid-stroke",            "Mid-Stroke",                   "calligraphy", "Studio", 2),
@@ -164,10 +170,6 @@ CURATION = [
     (316, "october",               "October",                      "chicago",  "Chicago, IL", 0),
     (317, "street-at-dusk",        "Street at Dusk",               "chicago",  "Chicago, IL", 0),
     (318, "dropped-hand",          "Dropped Hand",                 "chicago",  "Chicago, IL", 0),
-    (326, "rockefeller-chapel",    "Rockefeller Chapel",           "chicago",  "Hyde Park, Chicago", 2),
-    (327, "ivy-house",             "Ivy House",                    "chicago",  "Hyde Park, Chicago", 1),
-    (328, "botany-pond",           "Botany Pond",                  "chicago",  "Hyde Park, Chicago", 1),
-    (329, "ivy-at-dusk",           "Ivy at Dusk",                  "chicago",  "Hyde Park, Chicago", 1),
     (330, "amor-y-paz",            "Amor y Paz",                   "chicago",  "Chicago, IL", 0),
     (333, "glass-on-glass",        "Glass on Glass",               "chicago",  "Chicago, IL", 1),
     (334, "towers-from-the-park",  "Towers from the Park",         "chicago",  "Chicago, IL", 1),
@@ -213,7 +215,7 @@ COLLECTIONS = {
     "events":      {"group": "Commissions", "name": "Events",
                     "blurb": "Openings, banquets, department events, and parades, including official coverage of the 2026 Arts in the Dark Parade. Hospitals and campus buildings are familiar ground."},
     "product":     {"group": "Commissions", "name": "Product & Brand",
-                    "blurb": "Food, packaging, and pop-up tables. The work small businesses actually need, shot in daylight where the product allows it."},
+                    "blurb": "Food, packaging, pop-up tables, and website photography, including the University of Chicago campus for AdmitMD, where I am the official photographer. The work small businesses actually need, shot in daylight where the product allows it."},
     "calligraphy": {"group": "Commissions", "name": "Calligraphy",
                     "blurb": "Arabic script by hand, in ink on paper. Invitations, names, signage, and gifts."},
     "chicago":     {"group": "Personal work", "name": "Chicago",

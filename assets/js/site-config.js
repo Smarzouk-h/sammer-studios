@@ -205,6 +205,7 @@ const SITE = {
     { client: "Arts in the Dark Parade",  work: "Official photographer, 2026", kind: "Event" },
     { client: "Northwestern Medicine",  work: "Bronzeville location opening", kind: "Event" },
     { client: "American Muslim Physician Association", work: "Annual banquet coverage", kind: "Event" },
+    { client: "AdmitMD",                work: "Official photographer, website photography at the University of Chicago", kind: "Brand" },
     { client: "Dar Baklava",            work: "Product and packaging photography", kind: "Product" },
     { client: "Medical students",       work: "ERAS residency application headshots", kind: "Portrait" },
     { client: "Private clients",        work: "Engagement and couples sessions", kind: "Portrait" },

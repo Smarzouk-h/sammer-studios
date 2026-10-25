@@ -433,8 +433,8 @@ the home and About pages lists real engagements in plain text instead, which is
 honest and needs nobody's brand assets. Once you have written testimonials they
 belong on the booking page, just under the packages.
 
-The Experience strip names Northwestern Medicine, the American Muslim
-Physician Association, and Dar Baklava. Make sure you are comfortable with each
+The Experience strip names the Arts in the Dark Parade, Northwestern Medicine,
+the American Muslim Physician Association, AdmitMD, and Dar Baklava. Make sure you are comfortable with each
 of those being public, and that the people in the headshots and the banquet
 photograph are happy to be on a public site.
 
